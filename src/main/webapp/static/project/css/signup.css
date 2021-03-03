@@ -1,0 +1,100 @@
+@import "reset.css";
+body{
+    height: 100vh;
+    display: flex;/* �뿬湲곕븣臾몄뿉 �떎�떆 苑됱감議뗫떎 */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+}
+
+h1{
+    text-align: center;
+    color:rgb(249, 253, 255);
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom : 40px;
+}
+
+form.loginform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input#id,input#pwd,input#repwd,
+input#name,input#email
+{
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: black;
+    padding: 25px 5px 3px 5px;
+    border-bottom: 2px solid rgb(249, 253, 255);
+    
+}
+
+div.id-div,
+div.pw-div,
+div.repw-div,
+div.email-div,
+div.name-div,
+div.btn-div{
+    position: relative;
+    margin-bottom: 10px;
+    width: 400px;
+    text-align: center;
+    z-index: 5;
+    background-color: rgba(255, 255, 255,0.5);
+}
+
+label
+{
+    position: absolute;
+    font-size: 15px;
+    color:black;
+    padding:5px 2px;
+}
+
+#sbbtn
+{
+	color: rgb(249, 253, 255);
+	width: 100%;
+	padding: 15px 30px;
+    margin-top: 20px;
+    background-color: blueviolet;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    transform: scale(1);
+    transition: transform 0.2s linear;
+}
+
+#sbbtn{
+    transform: scale(1.05);
+}
+
+#checkidbtn
+{
+    position: absolute;
+    top:10px;
+    right:10px;
+    background-color: blueviolet;
+    border-radius: 10px;
+    color: rgb(249, 253, 255);
+    border: none;
+    padding: 3px 10px;
+    cursor: pointer;
+}	
+
+.checkfont{
+	color:black;	
+}
+
+
+
+
+
+

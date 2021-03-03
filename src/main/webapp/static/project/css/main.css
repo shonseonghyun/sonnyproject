@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+	font-family: 'Gaegu', cursive;
+}
+
+.item-wrapper{
+    width: 700px;
+    margin: 0 auto; /* 筌띾뜆彛� 占쎄돌占쎈떊揶쏅쉰由� */
+
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+figure{
+    display: inline-block; /* 癰귣챷�뵥占쎌벥 width,height揶쏅쉰由� */
+    margin: 0 20px 20px 0 ;
+    position: relative ; /* 占쎄돌餓λ쵐肉� 占쏙옙占쎌뵠占쏙옙 占쎌쁽�뵳占� */
+    width: 300px; /* 占쎌뵠 占쎄텢占쎌뵠筌앾옙 占쎈툧占쎈퓠占쎄퐣 占쎌뵠沃섎챷占썼�뚣끉二곤옙�뼄占쎌삂占쎈툡鈺곕뿫�뼄 */
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* figure:nth-child(2n+0){margin-right: 0;} */
+
+img{
+    display: block; /* 占쎌쁽�뵳占� �겫占썼�곌퉲釉�筌롳옙 獄쏅쵐�몵嚥∽옙 占쎄땀占쎌젻揶쏉옙野껊슦釉�占쎌젻�⑨옙 占쎌뵠�겫占썽겫袁⑤뼄占쎈뻻占쎈퉸癰귣떯由�*/
+    width: 100%;
+    transform: scale(1);
+    transition: all .3s linear; /* 占쎄돌餓ο옙 占쎌뵠沃섎챷占썼린遺우맄占쎈툧占쎈퓠占쎄퐣 �뚣끉占썲칰�슦釉�疫뀐옙 */
+}
+
+figcaption{
+    position: absolute; 
+    z-index: 2;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+
+figcaption::before{
+    position: absolute;
+    content: "";
+    background-color: rgba(0,0,0,0.7);
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    opacity: 0;
+}
+
+figcaption p,
+figcaption h2{
+    opacity: 0;
+    position: relative;
+    z-index: 4;
+    transform: translateY(110px);
+    transition: transform 0.5s linear;
+}
+
+
+figure:hover figcaption::before {opacity: 1;}
+figure:hover p,
+figure:hover h2{
+    transform: translateY(0);
+    opacity: 1;
+
+}
+
+figure:hover img{
+    transform: scale(1.2);
+}
+
+
+			/* header */
+.header-div{
+	text-align:right;
+	margin:10px 10px;
+	
+}
+
+.no-decoration{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+				/* body */
+body{
+	background-color: rgba(0,0,0,0.1);
+}

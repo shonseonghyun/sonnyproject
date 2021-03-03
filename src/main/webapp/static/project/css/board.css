@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* @import "reset.css";
+ */
+			/* header */
+.header-div{
+	text-align:right;
+	margin:10px 10px;
+	
+}
+
+.no-decoration{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+				/* body */
+body{
+	font-family: 'Gaegu', cursive;
+	font-size:20px;
+	background-color: rgba(0,0,0,0.1);
+}
+
+		/*table*/
+.notice-table{
+	margin:70px  auto;
+	border-collapse: collapse;
+}
+.table-head{
+	text-align: center;
+}
+
+tr:first-child{
+	background: ghostwhite;
+}
+tr:nth-child(even){
+	background: white;
+}
+
+td{
+	border:1px solid rgba(0,0,0,0.6);
+	padding:10px 20px;
+}		
+a{
+	text-decoration: none;
+	color: black;
+}
+.table-id{
+	width:100px;
+}
+
+.table-title{
+	width:200px;
+}
+
+.table-writer{
+	width:100px;
+}
+
+.table-date{
+	width:80px;
+}
+
+.table-hit{
+	width:90px;
+}
+
+#write-icon{
+	font-size: 30px;
+}
+
+.top5-div{
+	position: absolute;
+	top: 200px;
+}
