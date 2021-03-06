@@ -11,17 +11,13 @@
 		url="signup";
 		window.open(url,"signup",width=570,height=590);
 		}
-	
-	function nomember(){
-		alert("아이디 또는 비밀번호가 존재하지 않습니다");
-		}
 </script>
 <title>로그인 페이지</title>
 </head>
-<c:if test="${name == 2}">
-	<body onload="nomember()">
+<c:if test="${exist == 'N' }">
+	<body onload="alert('아이디 또는 비밀번호가 존재하지 않습니다')">
 </c:if>
-<c:if test="${name!=null }">
+<c:if test="${exist !='N' }">
 	<body>
 </c:if>
 

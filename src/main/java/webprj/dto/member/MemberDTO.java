@@ -3,13 +3,23 @@ package webprj.dto.member;
 
 import java.sql.Date;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+
 public class MemberDTO {
+	@Pattern(regexp ="[a-z0-9]{4,12}")
 	private String id;
+	
+	@Pattern(regexp = "[A-Za-z0-9!@]{4,12}")
 	private String pwd;
+	
+	@Email
 	private String email;
+	
+	@Pattern(regexp = "[가-힣]{2,6}")
 	private String name;
+	
 	private Date date ;
-	private String phone;
 	private String autologin;
 	
 	
@@ -50,17 +60,10 @@ public class MemberDTO {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	
 	@Override
 	public String toString() {
 		return "MemberDTO [id=" + id + ", pwd=" + pwd + ", email=" + email + ", name=" + name + ", date=" + date
-				+ ", phone=" + phone + ", autologin=" + autologin + "]";
+				+  ", autologin=" + autologin + "]";
 	}
 
 }

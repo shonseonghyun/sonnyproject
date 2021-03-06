@@ -1,6 +1,5 @@
 package webprj.service.member;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +13,18 @@ public class MemberServiceImpl implements MemberService {
 	MemberDAO memberDAO;
 	
 	@Override
-	public String doLogin(MemberDTO member) {
+	public MemberDTO doLogin(MemberDTO member) {
 		return memberDAO.doLogin(member);
 	}
 
 	@Override
 	public void signup(MemberDTO member) {
 		memberDAO.signup(member);
+	}
+
+	@Override
+	public int idcheck(String id) {
+		return memberDAO.idcheck(id);
 	}
 
 }

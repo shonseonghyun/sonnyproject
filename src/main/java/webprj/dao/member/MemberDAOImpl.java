@@ -15,13 +15,18 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	
 	@Override
-	public String doLogin(MemberDTO member) {
+	public MemberDTO doLogin(MemberDTO member) {
 		return sqlsession.selectOne("member.login", member);
 	}
 
 	@Override
 	public void signup(MemberDTO member) {
 		sqlsession.insert("member.signup", member);
+	}
+
+	@Override
+	public int idcheck(String id) {
+		return sqlsession.selectOne("member.idcheck", id);
 	}
 
 }

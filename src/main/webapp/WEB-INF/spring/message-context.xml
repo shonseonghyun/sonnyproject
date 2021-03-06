@@ -7,8 +7,14 @@
         http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-   	<bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-   	
-   	
-
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="defaultEncdoing">
+			<value>utf-8</value>
+		</property>
+		<property name="basenames">
+			<list>
+				<value>messages/signup_message_ko.properties</value>
+			</list>
+		</property>
+	</bean>
 </beans>

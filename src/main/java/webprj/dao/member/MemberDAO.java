@@ -4,8 +4,12 @@ import webprj.dto.member.MemberDTO;
 
 public interface MemberDAO {
 	//로그인 ->이름 반환
-	public String doLogin(MemberDTO member);
+	public MemberDTO doLogin(MemberDTO member);
 	
 	//아이디 회원가입
 	public void signup(MemberDTO member);
+	
+	//중복확인
+	public int idcheck(String id);
+	
 }

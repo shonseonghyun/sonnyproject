@@ -1,10 +1,11 @@
 @import "reset.css";
 body{
     height: 100vh;
-    display: flex;/* �뿬湲곕븣臾몄뿉 �떎�떆 苑됱감議뗫떎 */
+    display: flex;/* 占쎈연疫꿸퀡釉ｈ눧紐꾨퓠 占쎈뼄占쎈뻻 �땻�맩媛먫�곕뿫�뼄 */
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.1);
+    font-family: 'Gaegu', cursive;
     
 }
 
@@ -24,7 +25,7 @@ form.loginform{
 }
 
 input#id,input#pwd,input#repwd,
-input#name,input#email
+input#name,input#email , input#emailnumber
 {
     width: 100%;
     outline: none;
@@ -41,7 +42,8 @@ div.pw-div,
 div.repw-div,
 div.email-div,
 div.name-div,
-div.btn-div{
+div.btn-div,
+div.emailnumber-div{
     position: relative;
     margin-bottom: 10px;
     width: 400px;
@@ -76,7 +78,7 @@ label
     transform: scale(1.05);
 }
 
-#checkidbtn
+#checkidbtn , #sendEmailBtn , #checkemailNumber
 {
     position: absolute;
     top:10px;
