@@ -25,7 +25,8 @@ public class LoginController {
 	//로그인하기
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String doLogin(@ModelAttribute MemberDTO member) {
-		System.out.println(memberService.doLogin(member));
+		String name=memberService.doLogin(member);
+		//새로고림 방지 (새로운 페이지를 보여준다)
 		return "redirect:/football/main";
 	}
 	

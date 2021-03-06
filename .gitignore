@@ -2,5 +2,5 @@
 .target/
 .classpath
 .project
-
-src/main/webapp/WEB-INF/spring/security-context.xml
+targe/**
+src/main/webapp/WEB-INF/spring/datasource-context.xml
