@@ -1,9 +1,12 @@
 package webprj.controller.login;
 
+import java.util.Map;
 import java.util.Random;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import webprj.dto.member.MemberDTO;
 import webprj.service.member.MemberService;
@@ -37,35 +42,54 @@ public class LoginController {
 	
 	//로그인 화면
 	@RequestMapping(value="login", method = RequestMethod.GET)
-	public String getloginpage() {
-		return "project/member/login";
-	}
-	
-	//로그인하기
-	@RequestMapping(value="login", method = RequestMethod.POST)
-	public ModelAndView doLogin(@ModelAttribute MemberDTO member,ModelAndView mav) {
-		
-		MemberDTO dto=memberService.doLogin(member);
-		boolean matchPwd;
-		try { //만약 아이디가 DB에 존재하지 않는다면
-			matchPwd=pwdEncoder.matches(member.getPwd(), dto.getPwd());
-		}catch(Exception e) {
-			mav.addObject("exist", "N");
-			mav.setViewName("project/member/login");
-			return mav;
-		}
-		if(dto != null && matchPwd == true) { // 아이디가 존재하면서 패스워드가 같다면!
-			//새로고림 방지 (새로운 페이지를 보여준다)
+	public ModelAndView getloginpage(ModelAndView mav,HttpServletRequest request) {
+//		Map<String,?> map = RequestContextUtils.getInputFlashMap(request);
+		HttpSession session = request.getSession();
+		if(session.getAttribute("name") != null) { //이미 로그인한 경우
 			mav.setViewName("redirect:/football/main");
 			return mav;
 		}
-		else { //아이디가 존재하지 않거나 패스워드가 다르다면?
-			mav.addObject("exist", "N");
+		else {  //로그인을 이제 시작하는 경우
 			mav.setViewName("project/member/login");
 			return mav;
 		}
 	}
 	
+	
+	//로그인하기
+	@RequestMapping(value="login", method = RequestMethod.POST)
+	public String doLogin(@ModelAttribute MemberDTO member,HttpServletRequest request, RedirectAttributes rttr) {
+		
+		HttpSession session = request.getSession();
+		
+		MemberDTO dto=memberService.doLogin(member); //인코딩된 pwd 가진 MemberDTO객체 반화
+		
+		if(dto != null) { //아이다가 존재할 경우
+			if(pwdEncoder.matches(member.getPwd(), dto.getPwd())) { // 비밀번호가 일치할 경우
+				
+				//session저장
+				session.setAttribute("name", dto.getName());
+				session.setAttribute("id", member.getId());
+				
+				return "redirect:/football/main";
+			}else { //비밀번호가 일치하지 않는 경우
+				rttr.addFlashAttribute("exist", "N");
+				return "redirect:/football/login";  //로그인 페이지 이동
+			}
+		}
+		else { //아이디가 존재하지 않을 경우
+			rttr.addFlashAttribute("exist", "N");
+			return "redirect:/football/login";  //로그인 페이지 이동
+		}
+	}
+	
+	//로그아웃
+	@RequestMapping(value= "logout" , method = RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		return "redirect:/football/main";
+	}
 	
 	//회원가입 화면
 	@RequestMapping(value= "signup" , method = RequestMethod.GET)
@@ -90,7 +114,7 @@ public class LoginController {
 		String inputPwd= member.getPwd();
 		String pwd=pwdEncoder.encode(inputPwd);
 		member.setPwd(pwd);
-		//회원가입 진행
+		//회원가입 쿼리 실행
 		memberService.signup(member);
 		mav.setViewName("redirect:/football/main");
 		return mav;

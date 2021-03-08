@@ -14,7 +14,7 @@
 </head>
 <body>
     <section class="login-section">
-        <h1>LOGO DESIGN</h1>
+        <h1>LOGO DESIGN1${exist}</h1>
         <form method="post" action="signup" name="loginform" class="login-form" autocomplete="off">
        		<div class="name-div">
                 <label for="name">이름</label>

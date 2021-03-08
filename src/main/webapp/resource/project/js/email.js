@@ -10,6 +10,7 @@ $(function(){
 			type : "get",
 			url : "mailcheck?email="+email,
 			success : function(data){
+				alert("인증번호가 전송되었습니다.");
 				console.log("data : "+ data );
 				code = data;
 			}

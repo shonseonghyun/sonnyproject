@@ -19,7 +19,7 @@
 			</c:if>	
 			<c:if test="${sessionScope.name!=null}">
 				${sessionScope.name}님
-				<a onclick="logoutbtn()" class="no-decoration">로그아웃</a>	
+				<a class="no-decoration" href= "logout">로그아웃</a>	
 			</c:if>
 			
 		 </div>

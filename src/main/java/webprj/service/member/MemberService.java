@@ -1,5 +1,7 @@
 package webprj.service.member;
 
+import javax.servlet.http.HttpSession;
+
 import webprj.dto.member.MemberDTO;
 
 public interface MemberService {

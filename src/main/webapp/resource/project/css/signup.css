@@ -78,7 +78,7 @@ label
     transform: scale(1.05);
 }
 
-#checkidbtn , #sendEmailBtn , #checkemailNumber
+#checkidbtn , #sendEmailBtn ,#checkemailnumber
 {
     position: absolute;
     top:10px;
