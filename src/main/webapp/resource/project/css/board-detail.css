@@ -1,0 +1,70 @@
+.header-div{
+	text-align:right;
+	margin:10px 10px;
+	
+}
+
+.no-decoration{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+				/* body */
+body{
+	font-family: 'Gaegu', cursive;
+	font-size:20px;
+	background-color: rgba(0,0,0,0.1);
+}                   
+                   
+                   
+                        /* �뵒�뀒�씪 寃뚯떆�뙋 湲� */
+.detail-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top:60px;
+    margin-bottom: 80px;
+}
+
+table{
+    color:rgba(0, 0, 0, 0.9);
+    font-size: 17px;
+    text-align: center;
+    /* margin-top: 50px; */
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-collapse: collapse;
+}
+
+tr{
+    border-top:1px solid rgba(0, 0, 0, 0.3);
+    border-bottom:1px solid rgba(0, 0, 0, 0.1);
+}
+
+td{
+    padding: 9px;
+    width:230px;
+}
+
+.color-area{
+    background-color: #f3eae8 ;
+}
+
+.color-blue{
+    color: blue;
+}
+
+.not-align{
+    text-align: left;
+    vertical-align: 0;
+}
+
+.btn{
+    display: inline-block;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: rgb(238, 220, 255);
+    color: black;
+
+}

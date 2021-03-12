@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="board">
+<select id="getAllboard"  parameterType="java.util.HashMap" resultType="webprj.dto.board.BoardDTO">
+		SELECT T.* FROM 
+		(SELECT S.* , ROW_NUMBER() OVER(ORDER BY id DESC) as rnum FROM pfnotice S
+		WHERE
+		<if test="search_option == 'title'">
+			title LIKE '%'||#{q}||'%'
+		</if>
+		<if test="search_option == 'writer_id'">
+			writer_id LIKE '%'||#{q}||'%'
+		</if>
+		) T 
+		WHERE rnum BETWEEN 5*#{page}-4 AND #{page}*5
+	</select>
+	
+	
+	<insert id="writeboard">
+		insert into pfnotice(title,writer_id,content)
+		 values(#{title},#{writer_id},#{content})
+	</insert>
+	
+	<select id="getboard" resultType="webprj.dto.board.BoardDTO">
+		SELECT * FROM PFNOTICE WHERE ID=#{id}
+	</select>
+	
+	<select id="countboard"  parameterType="java.util.HashMap" resultType="int">
+		select count(id) from pfnotice  WHERE ${f}  like '%'||#{q}||'%'
+	</select>
+	
+	<update id="addHit">
+		UPDATE PFNOTICE SET HIT=HIT+1 WHERE ID=#{id}
+	</update>
+	
+	<delete id="deleteboard">
+		DELETE PFNOTICE WHERE ID=#{id}
+	</delete>
+	
+	<update id="modifyboard">
+		UPDATE  PFNOTICE SET TITLE=#{title}, CONTENT=#{content} WHERE ID=#{id}
+	</update>
+	
+	<select id="hittop3" resultType="webprj.dto.board.BoardDTO">
+		select id,title from
+		(select pfnotice.*,row_number() over (order by hit desc) as rank from pfnotice)
+		where rank between 1 and 3
+	</select>
+</mapper>

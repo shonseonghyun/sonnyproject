@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+			/* header */
+.header-div{
+	text-align:right;
+	margin:10px 10px;
+	
+}
+
+.no-decoration{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+				/* body */
+body{
+	font-family: 'Gaegu', cursive;
+	font-size:20px;
+	background-color: rgba(0,0,0,0.1);
+}
+
+td{
+	padding: 5px 10px;
+}
+
+
+table{
+	width:900px;
+	margin: 100px auto;
+	border-collapse: collapse;
+}
+
+.title-write{
+	width: 90%;
+	margin-right: 100px;
+}
+
+textarea{
+	width: 99%;
+	height:  99%;
+}

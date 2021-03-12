@@ -4,3 +4,4 @@
 .project
 target/ #폴더무시
 src/main/webapp/WEB-INF/spring/datasource-context.xml
+target/*

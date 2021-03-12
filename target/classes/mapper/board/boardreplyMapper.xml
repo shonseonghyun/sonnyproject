@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="boardreply">
+
+	<select id="readreply" resultType="webprj.dto.board.BoardReplyDTO">
+		SELECT NO,CONTENT,WRITER_ID,REGDATE FROM PFNOTICE_REPLY WHERE ID=#{id}
+	</select>
+	
+	<insert id="writereply">
+		INSERT INTO PFNOTICE_REPLY(ID,CONTENT,WRITER_ID)
+		VALUES(#{id},#{content},#{writer_id})	
+	</insert>
+	
+	<delete id="delreply">
+		DELETE PFNOTICE_REPLY WHERE NO=${no}
+	</delete>
+</mapper>
