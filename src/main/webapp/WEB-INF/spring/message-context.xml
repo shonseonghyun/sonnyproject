@@ -8,7 +8,7 @@
         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="defaultEncdoing">
+		<property name="defaultEncoding">
 			<value>utf-8</value>
 		</property>
 		<property name="basenames">

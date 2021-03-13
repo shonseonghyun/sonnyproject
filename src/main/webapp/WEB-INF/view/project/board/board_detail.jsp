@@ -28,16 +28,7 @@
 <%-- <img width="100" height="100" alt="" src="/images/project/${detail.files }">
  --%>
 	 <header>
-		<div class="header-div">
-			<c:if test="${sessionScope.name==null}">
-				<a class="no-decoration" href="/football/login">로그인</a>
-			</c:if>	
-			<c:if test="${sessionScope.name!=null}">
-				${sessionScope.name}님
-				<a id="LogoutBtn" class="no-decoration">로그아웃</a>	
-			</c:if>
-			
-		 </div>
+		<%@ include file="../header.jsp" %>
     </header>
  
  	 <div class= "detail-container">
@@ -112,7 +103,6 @@
       </div>
  </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
-<script src="/project/js/logout.js" ></script>
 <script src="/project/js/reply.js" ></script>
 <script src="/project/js/replyDelBtn.js" ></script>
 </html>

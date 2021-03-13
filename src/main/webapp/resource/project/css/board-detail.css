@@ -1,3 +1,4 @@
+@import url("body-bgcolor.css");
 .header-div{
 	text-align:right;
 	margin:10px 10px;
@@ -13,7 +14,6 @@
 body{
 	font-family: 'Gaegu', cursive;
 	font-size:20px;
-	background-color: rgba(0,0,0,0.1);
 }                   
                    
                    

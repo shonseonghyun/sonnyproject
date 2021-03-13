@@ -13,16 +13,7 @@
 <body>			
 				<!-- header 시작 -->
 	<header>
-		<div class="header-div">
-			<c:if test="${sessionScope.name==null}">
-				<a class="no-decoration" href="login">로그인</a>
-			</c:if>	
-			<c:if test="${sessionScope.name!=null}">
-				${sessionScope.name}님
-				<a class="no-decoration" href= "logout">로그아웃</a>	
-			</c:if>
-			
-		 </div>
+		<%@ include file="project/header.jsp" %>
 	</header>
 					<!-- header 끝 -->
    <div class="item-wrapper">
@@ -35,7 +26,7 @@
         	</a>
         </figure>
         <figure>
-            <a href="shop/list">
+            <a href="goods">
 	            <img src="/project/images/2.jpg" alt="없다">
 	            <figcaption>
 	                <h2>Product</h2>

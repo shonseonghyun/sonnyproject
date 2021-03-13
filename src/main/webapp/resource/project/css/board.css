@@ -1,12 +1,8 @@
 @charset "UTF-8";
 /* @import "reset.css";
  */
+ @import url("header.css");
 			/* header */
-.header-div{
-	text-align:right;
-	margin:10px 10px;
-	
-}
 
 .no-decoration{
 	text-decoration: none;

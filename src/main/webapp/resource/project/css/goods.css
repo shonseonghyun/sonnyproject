@@ -1,0 +1,41 @@
+@import url("header.css");
+@import url("body-bgcolor.css");
+
+table{
+	font-size: 30px;
+}
+.content-title{
+	margin-top: 60px;
+}
+.content-title,.table-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+table{
+	border-spacing: 0 10px;
+}
+td{
+	padding-right: 30px;
+}
+
+input{
+	width:200px;
+	height: 20px;
+	padding:2px;
+}
+input,textarea{
+	border-radius: 5px;
+
+}
+.btn-td{
+	padding-left: 270px;
+}
+
+#btn{
+	border: 1px solid skyblue;
+	background-color: rgba(0,0,0,0);
+	color: skyblue; padding: 8px;
+	border-radius: 10px;
+}
+button#btn:hover{ color:white; background-color: skyblue; }

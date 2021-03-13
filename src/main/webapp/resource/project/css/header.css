@@ -1,0 +1,20 @@
+@charset "UTF-8";
+*{
+	font-family: 'Gaegu', cursive;
+}
+.header-div{
+	text-align:right;
+	margin:10px 10px; 
+	font-size : 25px;
+}
+a{
+	text-decoration: none;
+		
+	}
+
+li{
+	display: inline-block;
+	list-style: none;
+	padding-right: 5px;
+	
+}

@@ -1,12 +1,15 @@
+@import url("body-bgcolor.css");
+@import url("header.css");
+
+
 *{
     margin: 0;
     padding: 0;
-	font-family: 'Gaegu', cursive;
 }
 
 .item-wrapper{
     width: 700px;
-    margin: 0 auto; /* 筌띾뜆彛� 占쎄돌占쎈떊揶쏅쉰由� */
+    margin: 0 auto; /* 嶺뚮씭�쐠壤쏉옙 �뜝�럡�룎�뜝�럥�뻿�뤆�룆�돭�뵳占� */
 
     position: absolute;
     top:50%;
@@ -15,10 +18,10 @@
 }
 
 figure{
-    display: inline-block; /* 癰귣챷�뵥占쎌벥 width,height揶쏅쉰由� */
+    display: inline-block; /* �솻洹ｌ굣占쎈데�뜝�럩踰� width,height�뤆�룆�돭�뵳占� */
     margin: 0 20px 20px 0 ;
-    position: relative ; /* 占쎄돌餓λ쵐肉� 占쏙옙占쎌뵠占쏙옙 占쎌쁽�뵳占� */
-    width: 300px; /* 占쎌뵠 占쎄텢占쎌뵠筌앾옙 占쎈툧占쎈퓠占쎄퐣 占쎌뵠沃섎챷占썼�뚣끉二곤옙�뼄占쎌삂占쎈툡鈺곕뿫�뼄 */
+    position: relative ; /* �뜝�럡�룎繞벿살탳�굢占� �뜝�룞�삕�뜝�럩逾졾뜝�룞�삕 �뜝�럩�겱占쎈뎨�뜝占� */
+    width: 300px; /* �뜝�럩逾� �뜝�럡�뀬�뜝�럩逾좂춯�빢�삕 �뜝�럥�닱�뜝�럥�뱺�뜝�럡�맋 �뜝�럩逾졿쾬�꼶梨룟뜝�띁占쎈슔�걠雅뚭낀�삕占쎈펲�뜝�럩�굚�뜝�럥�닡�댖怨뺣엮占쎈펲 */
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
@@ -27,10 +30,10 @@ figure{
 /* figure:nth-child(2n+0){margin-right: 0;} */
 
 img{
-    display: block; /* 占쎌쁽�뵳占� �겫占썼�곌퉲釉�筌롳옙 獄쏅쵐�몵嚥∽옙 占쎄땀占쎌젻揶쏉옙野껊슦釉�占쎌젻�⑨옙 占쎌뵠�겫占썽겫袁⑤뼄占쎈뻻占쎈퉸癰귣떯由�*/
+    display: block; /* �뜝�럩�겱占쎈뎨�뜝占� 占쎄껀�뜝�띁占쎄퀗�돯�뇡占썹춯濡녹삕 �뛾�룆理먲옙紐드슖�댙�삕 �뜝�럡���뜝�럩�졎�뤆�룊�삕�뇦猿딆뒭�뇡占썲뜝�럩�졎占썩뫅�삕 �뜝�럩逾좑옙寃ュ뜝�띂寃ヨ쥈�뫀堉꾢뜝�럥六삣뜝�럥�돵�솻洹ｋ뼬�뵳占�*/
     width: 100%;
     transform: scale(1);
-    transition: all .3s linear; /* 占쎄돌餓ο옙 占쎌뵠沃섎챷占썼린遺우맄占쎈툧占쎈퓠占쎄퐣 �뚣끉占썲칰�슦釉�疫뀐옙 */
+    transition: all .3s linear; /* �뜝�럡�룎繞벿우삕 �뜝�럩逾졿쾬�꼶梨룟뜝�띁由곈겫�슦留꾢뜝�럥�닱�뜝�럥�뱺�뜝�럡�맋 占쎈슔�걠�뜝�뜴移곤옙�뒭�뇡占썹뼨�먯삕 */
 }
 
 figcaption{
@@ -94,7 +97,3 @@ figure:hover img{
 	cursor: pointer;
 }
 
-				/* body */
-body{
-	background-color: rgba(0,0,0,0.1);
-}

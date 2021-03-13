@@ -25,16 +25,7 @@
 <body>
 	<!--  header -->
 	<header>
-		<div class="header-div">
-			<c:if test="${sessionScope.name==null}">
-				<a class="no-decoration" href="/football/login">로그인</a>
-			</c:if>	
-			<c:if test="${sessionScope.name!=null}">
-				${sessionScope.name}님
-				<a id="LogoutBtn" class="no-decoration">로그아웃</a>	
-			</c:if>
-			
-		 </div>
+		<%@ include file="../header.jsp" %>
     </header>
     <!--  header -->
 
