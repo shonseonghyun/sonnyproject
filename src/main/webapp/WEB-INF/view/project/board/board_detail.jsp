@@ -89,16 +89,16 @@
         </div>
         
         <div>
-        <ol>
-        <c:forEach items="${reply}" var="reply">
-        	<li>
-        	${reply.content} |  ${reply.writer_id}  |  ${reply.regdate}  
-        	<c:if test="${reply.writer_id == sessionScope.id}">
-	        	<button class="delReplyBtn" data-id=${detail.id } data-no="${reply.no}">X</button>
-        	</c:if>
-        	</li>
-        </c:forEach>
-        </ol>
+	        <ol>
+		        <c:forEach items="${reply}" var="reply">
+		        	<li>
+			        	${reply.content} |  ${reply.writer_id}  |  ${reply.regdate}  
+			        	<c:if test="${reply.writer_id == sessionScope.id}">
+				        	<button class="delReplyBtn" data-id=${detail.id } data-no="${reply.no}">X</button>
+			        	</c:if>
+		        	</li>
+		        </c:forEach>
+	        </ol>
         </div>
       </div>
  </body>

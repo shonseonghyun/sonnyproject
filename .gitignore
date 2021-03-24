@@ -2,6 +2,7 @@
 .target/
 .classpath
 .project
-target/ #폴더무시
+#폴더무시
+target/ 
 src/main/webapp/WEB-INF/spring/datasource-context.xml
 target/*

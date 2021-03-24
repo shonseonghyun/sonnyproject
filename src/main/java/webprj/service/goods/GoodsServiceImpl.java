@@ -1,5 +1,7 @@
 package webprj.service.goods;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,17 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public void registerGoods(GoodsDTO dto) {
 		gdsdao.registerGoods(dto);
+	}
+
+	@Override
+	public List<GoodsDTO> getAllList() {
+		return gdsdao.getAllList();
+	}
+
+	@Override
+	public GoodsDTO getList(int id) {
+		// TODO Auto-generated method stub
+		return gdsdao.getList(id);
 	}
 
 }

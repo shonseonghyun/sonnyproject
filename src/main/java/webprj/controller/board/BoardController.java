@@ -142,7 +142,7 @@ public class BoardController {
 	@RequestMapping(value="/replywrite",method = RequestMethod.POST)
 	public String writeReply(@ModelAttribute BoardReplyDTO reply ,HttpSession session) {
 		replyservice.writerReply(reply);
-		return "redirect:/project/board/detail?id="+reply.getId();
+		return "redirect:/football/board/detail?id="+reply.getId();
 	}
 	
 	//삭제

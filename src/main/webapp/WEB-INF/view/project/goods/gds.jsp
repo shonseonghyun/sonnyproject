@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,23 +18,12 @@
 	<div class="content">
 		<div class="classic-div">
 			<ul class="item">
-				<li class="1">
-					<a href=""><img src="/project/images/ㅋㅋㅋ.jpg" alt=""></a>
+				<c:forEach var="l" items="${list }">
+					<li price="${l.gds_price }">
+					<a href="goods/detail?id=${l.gds_id }"><img src="/project/images/${l.picture_url }" alt=""></a>
 					<p></p>
-				</li>
-				<li class="2">
-					<a href=""><img src="111.jpg" alt=""></a>
-					<p></p>
-
-				</li>
-				<li>
-					<a href=""><img src="111.jpg" alt=""></a>
-					<p></p>
-				</li>
-				<li>
-					<a href=""><img src="111.jpg" alt=""></a>
-					<p></p>
-				</li>
+				</c:forEach>
+			
 			</ul>
 			<div class="btn-div">
 				<button onclick="location.href='goods/register'" class="reg-btn">상품 등록</button>

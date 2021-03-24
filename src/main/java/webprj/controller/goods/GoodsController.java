@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import webprj.dto.goods.GoodsDTO;
 import webprj.service.goods.GoodsService;
@@ -26,9 +27,20 @@ public class GoodsController {
 	
 	//상품페이지
 	@RequestMapping(value= "", method = RequestMethod.GET)
-	public String getgds() {
-		return "project/goods/gds";
+	public ModelAndView getgds(ModelAndView mav) {
+		mav.addObject("list", gdsservice.getAllList());
+		mav.setViewName("project/goods/gds");
+		return mav;
 	}
+	
+	//특정 상품 페이지
+	@RequestMapping(value="/detail",method = RequestMethod.GET)
+	public ModelAndView getgd(@RequestParam int id, ModelAndView mav) {
+		mav.addObject("item", gdsservice.getList(id));
+		mav.setViewName("project/goods/gds-detail");
+		return mav;
+	}
+	
 	//상품 등록 페이지
 	@RequestMapping(value= "/register", method = RequestMethod.GET)
 	public String getgdsregister() {
@@ -65,7 +77,4 @@ public class GoodsController {
 		FileCopyUtils.copy(fileData, target);
 		return savedname;
 	}
-
-	
-		
 }
