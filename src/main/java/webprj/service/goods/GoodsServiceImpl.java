@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import webprj.dao.goods.GoodsDAO;
+import webprj.dto.cart.CartDTO;
 import webprj.dto.goods.GoodsDTO;
 
 @Service
@@ -28,6 +29,11 @@ public class GoodsServiceImpl implements GoodsService {
 	public GoodsDTO getList(int id) {
 		// TODO Auto-generated method stub
 		return gdsdao.getList(id);
+	}
+
+	@Override
+	public void orderGoods(CartDTO cart) {
+		gdsdao.orderGoods(cart);
 	}
 
 }

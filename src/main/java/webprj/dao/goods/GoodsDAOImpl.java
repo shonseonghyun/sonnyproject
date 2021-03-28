@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import webprj.dto.cart.CartDTO;
 import webprj.dto.goods.GoodsDTO;
 
 @Repository
@@ -28,5 +29,16 @@ public class GoodsDAOImpl implements GoodsDAO {
 	public GoodsDTO getList(int id) {
 		return sqlsession.selectOne("goods.getlist", id);
 	}
+
+	@Override
+	public void orderGoods(CartDTO cart) {
+		sqlsession.insert("goods.order", cart);
+	}
+
+	@Override
+	public List<CartDTO> getOrderList() {
+		return sqlsession.selectList("goods.getOrderList");
+	}
+
 
 }

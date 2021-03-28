@@ -6,15 +6,20 @@ import java.util.UUID;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import webprj.dto.cart.CartDTO;
 import webprj.dto.goods.GoodsDTO;
 import webprj.service.goods.GoodsService;
 
@@ -76,5 +81,20 @@ public class GoodsController {
         //파일을 복사
 		FileCopyUtils.copy(fileData, target);
 		return savedname;
+	}
+	
+	
+	//상품 담기
+	@RequestMapping(value="/order",method = RequestMethod.POST ,produces = "application/json; charset=utf8")
+	public ResponseEntity<String> order(@RequestBody CartDTO cart) {
+		ResponseEntity<String> res=null;
+		try {
+			gdsservice.orderGoods(cart);
+			res=new ResponseEntity<String>("담기 성공",HttpStatus.CREATED);
+		}
+		catch(Exception e){
+			res=new ResponseEntity<String>("f",HttpStatus.BAD_REQUEST);
+		}
+		return res;
 	}
 }

@@ -14,4 +14,14 @@
 	<select id="getlist" resultType="webprj.dto.goods.GoodsDTO">
 		select * from goods where gds_id=#{id}
 	</select>
+	
+	<insert id="order">
+		insert into cart(id,gds_id,amount) values(#{id},#{gds_id},#{amount})
+	</insert>
+	
+	<select id="getOrderList" resultType="webprj.dto.cart.CartDTO">
+		select c.gds_id,g.gds_price,sum(c.amount),(g.gds_price * sum(c.amount)) total
+		from cart c join goods g on c.gds_id= g.gds_id where id=#{id}
+		group by c.gds_id,g.gds_price
+	</select>
 </mapper>

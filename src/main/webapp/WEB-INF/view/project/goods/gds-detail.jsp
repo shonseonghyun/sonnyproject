@@ -18,6 +18,8 @@
 		<div class="img-div">
 			<img src="/project/images/${item.picture_url }" alt=""></div>
 		<div class="gds-div">
+			<input class="gds_id" type="hidden" value="${param.id }">
+			<input class="id" type="hidden" value="${sessionScope.id}">
 			<h2>${item.gds_name }</h2>
 			<span>₩${item.gds_price }</span>
 			<div class="descr-div">
@@ -25,12 +27,14 @@
 			</div>
 			<div class="quantity-div">
 				<label for="quantity">수량</label>
-				<input type="number" name="" id="quantity">
+				<input type="number"  id="quantity">
 				<button type="button" class="plus-btn">+</button>
 				<button type="button" class="minus-btn" >-</button>
 			</div>
 			<div class="btn-div">
 				<button class="add-btn" type="button">담기</button>
+				<br/>
+				<button class="gds_list-btn" type="button">상품 목록</button>
 			</div>
 		</div>
 	</div>
@@ -63,5 +67,5 @@
 </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
 <script src="/project/js/gds-detail.js"></script>
-
+<script src="/project/js/order.js"></script>
 </html>

@@ -14,7 +14,7 @@
 			<c:if test="${sessionScope.id != null }">
 				<li><a href="/football/main">main</a></li>
 				<li><a href="">mypage</a></li>
-				<li><a href="">cart</a></li>
+				<li><a href="/football/cart">cart</a></li>
 				<li><a href="/football/logout" >logout</a></li>
 			</c:if>
 			<c:if test="${sessionScope.id == null }">
