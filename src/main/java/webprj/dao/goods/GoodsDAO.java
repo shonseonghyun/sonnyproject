@@ -18,7 +18,10 @@ public interface GoodsDAO {
 	void orderGoods(CartDTO cart);
 	
 	//담아둔 상품
-	List<CartDTO> getOrderList();
+	List<CartDTO> getOrderList(String id);
+	
+	//선택 상품 삭제
+	void deleteOrderList(int[] cart_id);
 	
 
 }

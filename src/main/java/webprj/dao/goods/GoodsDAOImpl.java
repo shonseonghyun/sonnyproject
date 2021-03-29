@@ -1,5 +1,6 @@
 package webprj.dao.goods;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -36,8 +37,15 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public List<CartDTO> getOrderList() {
-		return sqlsession.selectList("goods.getOrderList");
+	public List<CartDTO> getOrderList(String id) {
+		return sqlsession.selectList("goods.getOrderList",id);
+	}
+
+	@Override
+	public void deleteOrderList(int[] cart_id) {
+		HashMap<String, Object> map= new HashMap<>();
+		map.put("OrderList", cart_id);
+		sqlsession.delete("goods.deleteOrderList", map);
 	}
 
 

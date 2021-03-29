@@ -7,7 +7,15 @@ public class CartDTO {
 	private int amount;
 	
 	private String gds_name;
-	private int price;
+	private int gds_price;
+	private String picture_url;
+	
+	public String getPicture_url() {
+		return picture_url;
+	}
+	public void setPicture_url(String picture_url) {
+		this.picture_url = picture_url;
+	}
 	private int money;
 	public int getCart_id() {
 		return cart_id;
@@ -39,11 +47,11 @@ public class CartDTO {
 	public void setGds_name(String gds_name) {
 		this.gds_name = gds_name;
 	}
-	public int getPrice() {
-		return price;
+	public int getGds_price() {
+		return gds_price;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setGds_price(int gds_price) {
+		this.gds_price = gds_price;
 	}
 	public int getMoney() {
 		return money;
@@ -54,7 +62,7 @@ public class CartDTO {
 	@Override
 	public String toString() {
 		return "CartDTO [cart_id=" + cart_id + ", id=" + id + ", gds_id=" + gds_id + ", amount=" + amount
-				+ ", gds_name=" + gds_name + ", price=" + price + ", money=" + money + "]";
+				+ ", gds_name=" + gds_name + ", gds_price=" + gds_price + ", money=" + money + "]";
 	}
 	
 

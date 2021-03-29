@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,67 +16,65 @@
 	<div class="order-div">
 		<h1>Order</h1>
 		<div>
-			<table>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td>Product</td>
-					<td class="name-td">Name</td>
-					<td class="price-td">Price</td>
-					<td class="qty-td">Qty</td>
-					<td class="total-td">total</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td><img src="111.jpg" alt=""></td>
-					<td>아이템</td>
-					<td>200</td>
-					<td>
-						<input type="number" id="qty">
-					</td>
-					<td>600</td>
-				</tr>
-				<tr>
-					<td><input type="checkbox"></td>
-					<td><img src="111.jpg" alt=""></td>
-					<td>아이템</td>
-					<td>200</td>
-					<td>
-						<input type="number" id="qty">
-					</td>
-					<td>600</td>
-				</tr>
-				<tr>
-					<td colspan="6">
-						선택 상품 <button type="button" class="delete Btn">삭제</button>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<span style="display: block; margin-bottom: 20px;">
-							총 상품 금액
-						</span>
-						<span>
-							100
-						</span>
-					</td>
-					<td colspan="2">
-						<span style="display: block; margin-bottom: 20px;">
-							총 배송비
-						</span>
-						<span>
-							100
-						</span>
-					</td>
-					<td colspan="2">
-						<span style="display: block; margin-bottom: 20px;">
-							결제예정금액
-						</span>
-						<span>
-							100
-						</span>
-					</td>
-				</tr>
-			</table>
+			<form action="www" method="get">
+				<table>
+					<tr>
+						<td><input id="allChecked" type="checkbox"></td>
+						<td>Product</td>
+						<td class="name-td">Name</td>
+						<td class="price-td">Price</td>
+						<td class="qty-td">Qty</td>
+						<td class="total-td">total</td>
+					</tr>
+					
+					<c:forEach var="ol" items="${OrderList}">
+						<tr>
+							<td>
+								<input class="item" name="cart_id" type="checkbox" value="${ol.cart_id }">
+							</td>
+							<td><img src="/project/images/${ol.picture_url }" alt=""></td>
+							<td>${ol.gds_name }</td>
+							<td>${ol.gds_price }</td>
+							<td>
+								<input type="number" id="qty" value="${ol.amount }">
+							</td>
+							<td>${ol.money }</td>
+						</tr>
+					</c:forEach>
+					
+					<tr>
+						<td colspan="6">
+							선택 상품 <button type="button" class="delete Btn">삭제</button>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span style="display: block; margin-bottom: 20px;">
+								총 상품 금액
+							</span>
+							<span>
+								100
+							</span>
+						</td>
+						<td colspan="2">
+							<span style="display: block; margin-bottom: 20px;">
+								총 배송비
+							</span>
+							<span>
+								100
+							</span>
+						</td>
+						<td colspan="2">
+							<span style="display: block; margin-bottom: 20px;">
+								결제예정금액
+							</span>
+							<span>
+								100
+							</span>
+						</td>
+					</tr>
+				</table>
+			</form>
 		</div>
 	</div>
 	
@@ -91,4 +90,5 @@
 	</footer>
 </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
+<script src="/project/js/cart/cart.js"></script>
 </html>

@@ -20,8 +20,15 @@
 	</insert>
 	
 	<select id="getOrderList" resultType="webprj.dto.cart.CartDTO">
-		select c.gds_id,g.gds_price,sum(c.amount),(g.gds_price * sum(c.amount)) total
+		select c.cart_id,c.gds_id,g.gds_name,g.gds_price,c.amount,(g.gds_price * c.amount) money,g.picture_url
 		from cart c join goods g on c.gds_id= g.gds_id where id=#{id}
-		group by c.gds_id,g.gds_price
 	</select>
+	
+	<delete id="deleteOrderList">
+		delete cart 
+		where cart_id in
+		<foreach collection="OrderList" item="list" open="(" close=")" separator=",">
+			#{list}	
+		</foreach> 
+	</delete>
 </mapper>

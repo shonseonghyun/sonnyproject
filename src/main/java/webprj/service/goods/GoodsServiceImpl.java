@@ -36,4 +36,14 @@ public class GoodsServiceImpl implements GoodsService {
 		gdsdao.orderGoods(cart);
 	}
 
+	@Override
+	public List<CartDTO> getOrderList(String id) {
+		return gdsdao.getOrderList(id);
+	}
+
+	@Override
+	public void deleteOrderList(int[] cart_id) {
+		gdsdao.deleteOrderList(cart_id);
+	}
+
 }
