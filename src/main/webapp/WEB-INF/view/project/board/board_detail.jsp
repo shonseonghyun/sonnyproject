@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글</title>
-<link rel="stylesheet" href="/project/css/board-detail.css">
+<link rel="stylesheet" href="/project/css/board/board-detail.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">    
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -28,7 +28,7 @@
 <%-- <img width="100" height="100" alt="" src="/images/project/${detail.files }">
  --%>
 	 <header>
-		<%@ include file="../header.jsp" %>
+		<%@ include file="../include/header.jsp" %>
     </header>
  
  	 <div class= "detail-container">
@@ -103,6 +103,6 @@
       </div>
  </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
-<script src="/project/js/reply.js" ></script>
-<script src="/project/js/replyDelBtn.js" ></script>
+<script src="/project/js/board/reply.js" ></script>
+<script src="/project/js/board/replyDelBtn.js" ></script>
 </html>

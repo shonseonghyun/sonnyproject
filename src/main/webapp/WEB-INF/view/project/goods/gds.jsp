@@ -6,13 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 목록</title>
-<link rel="stylesheet" href="/project/css/gds.css">
+<link rel="stylesheet" href="/project/css/goods/gds.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-	<%@ include file="../header.jsp" %>
+	<%@ include file="../include/header.jsp" %>
 
 	<div class="header"><h1>Goods</h1></div>
 	<div class="content">
@@ -40,6 +40,6 @@
 	
 </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
-<script src="/project/js/gds.js"></script>
+<script src="/project/js/goods/gds.js"></script>
 
 </html>

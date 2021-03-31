@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link rel="stylesheet" href="/project/css/signup.css">
+<link rel="stylesheet" href="/project/css/member/signup.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -92,8 +92,8 @@
             </div>
         </form>
     </section>
-    <script src="/project/js/check.js"></script>
-    <script src="/project/js/email.js"></script>
-    <script src="/project/js/idCheck.js"></script>
+    <script src="/project/js/member/check.js"></script>
+    <script src="/project/js/member/email.js"></script>
+    <script src="/project/js/member/idCheck.js"></script>
 </body>
 </html>

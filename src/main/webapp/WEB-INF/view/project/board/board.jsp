@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/project/css/board.css">
+<link rel="stylesheet" href="/project/css/board/board.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <title>게시판</title>
@@ -24,7 +24,7 @@
 <body onload="checklist()">
 	<!--  header -->
 	<header>
-		<%@ include file="../header.jsp" %>
+		<%@ include file="../include/header.jsp" %>
 	</header>
 	<!--  header -->
 	

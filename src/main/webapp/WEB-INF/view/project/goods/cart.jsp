@@ -8,13 +8,13 @@
 <head>
 <meta charset="UTF-8">
 <title>order</title>
-<link rel="stylesheet" href="/project/css/goods/cart.css">
+<link rel="stylesheet" href="/project/css/cart/cart.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-	<%@ include file="../header.jsp" %>
+	<%@ include file="../include/header.jsp" %>
 	<div class="order-div">
 		<h1>Order</h1>
 		<div>

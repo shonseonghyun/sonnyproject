@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
 	@RequestMapping("/football/main")
-	public String test() {
-		return "main";
+	public String main() {
+		return "project/main/main";
 	}
 }

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/project/css/main.css">
+<link rel="stylesheet" href="/project/css/main/main.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <title>메인 페이지</title>
@@ -13,7 +13,7 @@
 <body>			
 				<!-- header 시작 -->
 	<header>
-		<%@ include file="project/header.jsp" %>
+		<%@ include file="../include/header.jsp" %>
 	</header>
 					<!-- header 끝 -->
    <div class="item-wrapper">

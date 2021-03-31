@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/project/css/header.css">
+<title>header</title>
+<link rel="stylesheet" href="/project/css/include/header.css">
 </head>
 <body>
 <div class="header-div">
@@ -15,7 +15,7 @@
 				<li><a href="/football/main">main</a></li>
 				<li><a href="">mypage</a></li>
 				<li><a href="/football/cart">cart</a></li>
-				<li><a href="/football/logout" >logout</a></li>
+				<li><span id="LogoutBtn">logout</span></li>
 			</c:if>
 			<c:if test="${sessionScope.id == null }">
 				<li><a href="/football/login" >login</a></li>
@@ -23,4 +23,5 @@
 		</ul>
 	</div>
 </body>
+ <script src="/project/js/include/logout.js"></script>
 </html>

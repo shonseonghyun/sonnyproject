@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/project/css/log.css">
+<link rel="stylesheet" href="/project/css/member/log.css">
 <script type="text/javascript">
 	function signup(){
 		url="signup";
@@ -46,7 +46,5 @@
             </div>
         </form>
     </section>
-<!--     <script src="/pf/js/log.js"></script>
- -->
  </body>
 </html>

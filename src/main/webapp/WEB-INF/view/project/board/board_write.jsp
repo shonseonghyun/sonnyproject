@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
  <link rel="preconnect" href="https://fonts.gstatic.com">    
  <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="/project/css/board-write.css">
+ <link rel="stylesheet" href="/project/css/board/board-write.css">
 <title>게시판 작성</title>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
@@ -25,7 +25,7 @@
 <body>
 	<!--  header -->
 	<header>
-		<%@ include file="../header.jsp" %>
+		<%@ include file="../include/header.jsp" %>
     </header>
     <!--  header -->
 
@@ -52,5 +52,4 @@
 
 </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
-<script src="/project/js/logout.js" ></script>
 </html>

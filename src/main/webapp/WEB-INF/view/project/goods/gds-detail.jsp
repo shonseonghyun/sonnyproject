@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>상품</title>
-<link rel="stylesheet" href="/project/css/gds-detail.css">
+<link rel="stylesheet" href="/project/css/goods/gds-detail.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
-	<%@ include file="../header.jsp" %>
+	<%@ include file="../include/header.jsp" %>
 
 	<div class="content-div">
 		<div class="img-div">
@@ -69,6 +69,6 @@
 	</footer>
 </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
-<script src="/project/js/gds-detail.js"></script>
-<script src="/project/js/order.js"></script>
+<script src="/project/js/goods/gds-detail.js"></script>
+<script src="/project/js/cart/order.js"></script>
 </html>

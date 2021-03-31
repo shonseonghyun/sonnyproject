@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 등록</title>
-<link rel="stylesheet" href="/project/css/goods.css">
+<link rel="stylesheet" href="/project/css/goods/gds-register.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">    
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 	<header>
-		<%@ include file="../header.jsp" %>
+		<%@ include file="../include/header.jsp" %>
 	</header>
 	<div class="content-title">
 		<h1>상품 등록</h1>
@@ -47,6 +47,6 @@
 		</form>
 	</div>
 </body>
-<script src="/project/js/gds_register.js"></script>
+<script src="/project/js/goods/gds_register.js"></script>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
 </html>
