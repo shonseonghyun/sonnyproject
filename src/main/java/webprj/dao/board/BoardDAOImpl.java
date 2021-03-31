@@ -65,5 +65,10 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectList("board.hittop3");
 	}
 
+	@Override
+	public String getTitle(int id) {
+		return sqlSession.selectOne("board.getTitle", id);
+	}
+
 
 }

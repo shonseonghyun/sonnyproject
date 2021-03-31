@@ -1,15 +1,18 @@
-var outbtn=document.getElementById('LogoutBtn');
+if(sessionStorage.getItem("id") != null){
 
-function logoutbtn(){
-		if(confirm("로그아웃하시겠습니까?")==true){
-			location.href="/football/logout";
-		}
-		else
-			return;
+	var outbtn=document.getElementById('LogoutBtn');
+	
+	function logoutbtn(){
+			if(confirm("로그아웃하시겠습니까?")==true){
+				location.href="/football/logout";
+			}
+			else
+				return;
+	}
+	
+	function event(){
+		outbtn.addEventListener("click",logoutbtn);
+	}
+	
+	event();
 }
-
-function event(){
-	outbtn.addEventListener("click",logoutbtn);
-}
-
-event();

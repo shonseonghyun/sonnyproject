@@ -16,7 +16,8 @@ body{
 	font-size:20px;
 }                   
                    
-                   
+    
+                
                         /* �뵒�뀒�씪 寃뚯떆�뙋 湲� */
 .detail-container{
     display: flex;
@@ -67,4 +68,8 @@ td{
     background-color: rgb(238, 220, 255);
     color: black;
 
+}
+
+.prev , .next{
+	cursor: pointer;
 }

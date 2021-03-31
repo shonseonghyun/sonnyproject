@@ -52,4 +52,9 @@ public class BoardServiceImpl implements BoardService {
 		return boarddao.gethittop3();
 	}
 
+	@Override
+	public String getTitle(int id) {
+		return boarddao.getTitle(id);
+	}
+
 }

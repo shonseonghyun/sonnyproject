@@ -87,9 +87,11 @@ public class BoardController {
 	//특정 게시글 조회
 	@RequestMapping("/detail")
 	public ModelAndView detail(@RequestParam int id,ModelAndView mav) {
-		mav.addObject("detail", boardservice.getboard(id));
+		BoardDTO board= boardservice.getboard(id);
+		mav.addObject("detail", board);
+		mav.addObject("prev_title",boardservice.getTitle(board.getPrev()));
+		mav.addObject("next_title",boardservice.getTitle(board.getNext()));
 		mav.addObject("reply", replyservice.readReply(id));
-		
 		mav.setViewName("project/board/board_detail");
 		return mav;
 	}

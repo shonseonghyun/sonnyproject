@@ -21,7 +21,7 @@
 </script>
 
 </head>
-<body onload="checklist()">
+<body>
 	<!--  header -->
 	<header>
 		<%@ include file="../include/header.jsp" %>

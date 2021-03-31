@@ -67,12 +67,32 @@
             
             <tr>
               <td class="color-area">이전글</td>
-              <td colspan="3"><a href="#">이전글 제목</a></td>
+              <td colspan="3">
+              	<span class="prev" id="${detail.prev}">
+              		<c:if test="${prev_title ==null }">
+              			더 이상 이전 글이 존재하지 않습니다.
+              		</c:if>
+              		<c:if test="${prev_title !=null }">
+              			${ prev_title}
+              		</c:if>
+              	</span>
+              	<%-- <a href="detail?id=${detail.prev}">이전 글</a> --%>
+              </td>
             </tr>
 
             <tr>
               <td class="color-area">다음글</td>
-              <td colspan="3"><a href="#">다음글 제목</a></td>
+              <td colspan="3">
+              	<span class="next" id="${detail.next}">
+					<c:if test="${next_title ==null }">
+              			더 이상 다음 글이 존재하지 않습니다.
+              		</c:if>
+              		<c:if test="${next_title !=null }">
+              			${ next_title}
+              		</c:if>
+				</span>
+			<%-- <a href="detail?id=${detail.prev} ">다음 글</a>--%>
+			  </td>
             </tr>
 
           </tbody>
@@ -105,4 +125,5 @@
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
 <script src="/project/js/board/reply.js" ></script>
 <script src="/project/js/board/replyDelBtn.js" ></script>
+<script src="/project/js/board/board-detail.js" ></script>
 </html>

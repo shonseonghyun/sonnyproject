@@ -15,6 +15,9 @@
 		WHERE rnum BETWEEN 5*#{page}-4 AND #{page}*5
 	</select>
 	
+	<select id="getTitle" resultType="String">
+		select title from pfnotice where id=#{id}
+	</select>
 	
 	<insert id="writeboard">
 		insert into pfnotice(title,writer_id,content)
@@ -22,7 +25,9 @@
 	</insert>
 	
 	<select id="getboard" resultType="webprj.dto.board.BoardDTO">
-		SELECT * FROM PFNOTICE WHERE ID=#{id}
+		SELECT * FROM
+			(SELECT P.*, lag(id,1,0) over(order by regdate desc) prev,lead(id,1,0) over(order by regdate desc) next FROM PFNOTICE P)
+		WHERE ID=#{id}
 	</select>
 	
 	<select id="countboard"  parameterType="java.util.HashMap" resultType="int">

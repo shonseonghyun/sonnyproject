@@ -18,5 +18,7 @@ public interface BoardService {
 	
 	//조회 top3
 	List<BoardDTO> gethittop3();
-		
+
+	//id로 title 구하기
+	String getTitle(int id);
 }

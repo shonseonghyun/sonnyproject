@@ -14,6 +14,22 @@ public class BoardDTO {
 	private String files;
 	private int pub;
 	
+	private int prev;
+	private int next;
+	
+	
+	public int getPrev() {
+		return prev;
+	}
+	public void setPrev(int prev) {
+		this.prev = prev;
+	}
+	public int getNext() {
+		return next;
+	}
+	public void setNext(int next) {
+		this.next = next;
+	}
 	public Date getRegdate() {
 		return regdate;
 	}
@@ -68,13 +84,12 @@ public class BoardDTO {
 	public void setPub(int pub) {
 		this.pub = pub;
 	}
+	
 	@Override
 	public String toString() {
 		return "BoardDTO [id=" + id + ", name=" + name + ", title=" + title + ", writer_id=" + writer_id + ", content="
-				+ content + ", regdate=" + regdate + ", hit=" + hit + ", files=" + files + ", pub=" + pub + "]";
+				+ content + ", regdate=" + regdate + ", hit=" + hit + ", files=" + files + ", pub=" + pub + ", prev="
+				+ prev + ", next=" + next + "]";
 	}
-	
-	
-	
 }
 
