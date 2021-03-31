@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,9 @@
 			<input class="gds_id" type="hidden" value="${param.id }">
 			<input class="id" type="hidden" value="${sessionScope.id}">
 			<h2>${item.gds_name }</h2>
-			<span>₩${item.gds_price }</span>
+			<span>
+				<fmt:formatNumber value="${item.gds_price }" pattern="₩###,###,###"/>
+			</span>
 			<div class="descr-div">
 				${item.gds_descr }
 			</div>

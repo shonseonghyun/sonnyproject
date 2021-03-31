@@ -2,6 +2,7 @@ package webprj.dao.goods;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,11 @@ public class GoodsDAOImpl implements GoodsDAO {
 		HashMap<String, Object> map= new HashMap<>();
 		map.put("OrderList", cart_id);
 		sqlsession.delete("goods.deleteOrderList", map);
+	}
+
+	@Override
+	public void modifyQty(Map<String, Object> map) {
+		sqlsession.update("goods.modifyQty", map);
 	}
 
 

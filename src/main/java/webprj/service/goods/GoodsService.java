@@ -1,6 +1,7 @@
 package webprj.service.goods;
 
 import java.util.List;
+import java.util.Map;
 
 import webprj.dto.cart.CartDTO;
 import webprj.dto.goods.GoodsDTO;
@@ -24,5 +25,6 @@ public interface GoodsService {
 	//선택 상품 삭제
 	void deleteOrderList(int[] cart_id);
 
-		
+	//상품 수량 수정
+	void modifyQty(Map<String, Object> map);
 }

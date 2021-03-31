@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,7 @@
 	<div class="order-div">
 		<h1>Order</h1>
 		<div>
-			<form action="www" method="get">
+			<form  method="get">
 				<table>
 					<tr>
 						<td><input id="allChecked" type="checkbox"></td>
@@ -34,11 +36,16 @@
 							</td>
 							<td><img src="/project/images/${ol.picture_url }" alt=""></td>
 							<td>${ol.gds_name }</td>
-							<td>${ol.gds_price }</td>
 							<td>
-								<input type="number" id="qty" value="${ol.amount }">
+								${ol.gds_price }
 							</td>
-							<td>${ol.money }</td>
+							<td>
+								<input value="${ol.cart_id }" hidden="hidden" />
+								<input min="1" type="number" class="qty" value="${ol.amount }">
+							</td>
+							<td class="amount">
+								${ol.money }
+							</td>
 						</tr>
 					</c:forEach>
 					
@@ -48,28 +55,25 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<span style="display: block; margin-bottom: 20px;">
+						<td  colspan="2">
+							<span  style="display: block; margin-bottom: 20px;">
 								총 상품 금액
 							</span>
-							<span>
-								100
+							<span class="Total_Amount">
 							</span>
 						</td>
 						<td colspan="2">
 							<span style="display: block; margin-bottom: 20px;">
 								총 배송비
 							</span>
-							<span>
-								100
+							<span class="Dilevery_Cost">
 							</span>
 						</td>
 						<td colspan="2">
 							<span style="display: block; margin-bottom: 20px;">
 								결제예정금액
 							</span>
-							<span>
-								100
+							<span class="Payment_Amount">
 							</span>
 						</td>
 					</tr>

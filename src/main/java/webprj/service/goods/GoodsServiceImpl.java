@@ -1,6 +1,7 @@
 package webprj.service.goods;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +45,11 @@ public class GoodsServiceImpl implements GoodsService {
 	@Override
 	public void deleteOrderList(int[] cart_id) {
 		gdsdao.deleteOrderList(cart_id);
+	}
+
+	@Override
+	public void modifyQty(Map<String, Object> map) {
+		gdsdao.modifyQty(map);
 	}
 
 }

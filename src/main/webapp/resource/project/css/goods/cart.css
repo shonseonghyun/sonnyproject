@@ -57,11 +57,14 @@ table{
 	text-align: center;
 
 }
+
 tr, td {
 border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 padding: 10px;
 }
-#qty{
+
+.qty{
+	padding-left: 10px;
 	width: 30px;
 	height: 30px;
 }

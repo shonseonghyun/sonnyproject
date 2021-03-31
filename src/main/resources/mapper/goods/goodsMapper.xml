@@ -31,4 +31,8 @@
 			#{list}	
 		</foreach> 
 	</delete>
+	
+	<update id="modifyQty">
+		update cart set amount=#{qty} where cart_id = #{cart_id}
+	</update>
 </mapper>
