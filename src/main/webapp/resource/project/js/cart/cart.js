@@ -1,4 +1,19 @@
 $(function(){
+	function addComma(value){
+		if(typeof(value) == "number"){
+			value =String(value);
+		}
+		value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return value; 
+	}
+		
+	function minusComma(value){
+		value = value.replace(/[^\d]+/g, "");
+		
+		return Number(value); 
+	}
+	
+	
 	//총 삼품금액, 총 배송비 , 결제 예정 금액 만드는 함수 선언!!
 	//추후에 수량변경할 때 필요한 함수
 	//함수 선언식
@@ -6,20 +21,20 @@ $(function(){
 		//총 삼품금액
 		var total=0;
 		$(".amount").each(function(i,k){
-			total +=Number($(k).text());
+			total +=Number(minusComma($(k).text()));
 		})
-		$(".Total_Amount").text(total);
+		$(".Total_Amount").text(addComma(total));
 		
 		//배송비
-		if($(".Total_Amount").text() >=  10000){
+		if( minusComma($(".Total_Amount").text()) >=  10000){
 			$(".Dilevery_Cost").text(0);
 		}
 		else{
-			$(".Dilevery_Cost").text(2500);
+			$(".Dilevery_Cost").text("2,500");
 		}
-		var payment = Number($(".Total_Amount").text()) +
-			 Number($(".Dilevery_Cost").text());
-		$(".Payment_Amount").text(payment);
+		var payment = minusComma($(".Total_Amount").text()) +
+			 minusComma($(".Dilevery_Cost").text());
+		$(".Payment_Amount").text(addComma(payment));
 	}
 	payment_fun();
 	
@@ -72,24 +87,24 @@ $(function(){
 			"cart_id": $(this).prev().val() ,
 			"qty" : qty
 		};
-		console.log(data);
 		var price= $(this).parent().prev().text();
+		price = Number(minusComma(price));
+		
 		//수량 변경 * 상품 가격
 		var money = price * $(this).val();
-		$(this).parent().next().text(money);
+		$(this).parent().next().text(addComma(money));
 		payment_fun();
 		$.ajax({
 			type:"get",
-			//contentType: "application/json",
+			contentType: "application/json",
 			url : "cart/modify",
 			data: data,
 			success : function(result){
-				console.log(result);
-				console.log("success");
 			},
 			error : function(result){
-				console.log(result);
 			}
 		})
 	})
+	
+		
 })

@@ -37,14 +37,14 @@
 							<td><img src="/project/images/${ol.picture_url }" alt=""></td>
 							<td>${ol.gds_name }</td>
 							<td>
-								${ol.gds_price }
+								<fmt:formatNumber pattern="###,###" value="${ol.gds_price  }" />
 							</td>
 							<td>
 								<input value="${ol.cart_id }" hidden="hidden" />
 								<input min="1" type="number" class="qty" value="${ol.amount }">
 							</td>
 							<td class="amount">
-								${ol.money }
+								<fmt:formatNumber pattern="###,###" value="${ol.money  }" />
 							</td>
 						</tr>
 					</c:forEach>
