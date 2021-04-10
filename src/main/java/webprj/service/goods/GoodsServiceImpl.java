@@ -14,42 +14,42 @@ import webprj.dto.goods.GoodsDTO;
 public class GoodsServiceImpl implements GoodsService {
 
 	@Autowired
-	GoodsDAO gdsdao;
+	GoodsDAO goodsDAO;
 	
 	@Override
 	public void registerGoods(GoodsDTO dto) {
-		gdsdao.registerGoods(dto);
+		goodsDAO.registerGoods(dto);
 	}
 
 	@Override
 	public List<GoodsDTO> getAllList() {
-		return gdsdao.getAllList();
+		return goodsDAO.getAllList();
 	}
 
 	@Override
 	public GoodsDTO getList(int id) {
 		// TODO Auto-generated method stub
-		return gdsdao.getList(id);
+		return goodsDAO.getList(id);
 	}
 
 	@Override
 	public void orderGoods(CartDTO cart) {
-		gdsdao.orderGoods(cart);
+		goodsDAO.orderGoods(cart);
 	}
 
 	@Override
 	public List<CartDTO> getOrderList(String id) {
-		return gdsdao.getOrderList(id);
+		return goodsDAO.getOrderList(id);
 	}
 
 	@Override
 	public void deleteOrderList(int[] cart_id) {
-		gdsdao.deleteOrderList(cart_id);
+		goodsDAO.deleteOrderList(cart_id);
 	}
 
 	@Override
 	public void modifyQty(Map<String, Object> map) {
-		gdsdao.modifyQty(map);
+		goodsDAO.modifyQty(map);
 	}
 
 }

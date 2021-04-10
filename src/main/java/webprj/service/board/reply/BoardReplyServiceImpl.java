@@ -13,22 +13,22 @@ public class BoardReplyServiceImpl implements BoardReplyService {
 
 	
 	@Autowired
-	BoardReplyDAO dao;
+	BoardReplyDAO boardReplyDAO;
 	
 	//댓글 조회->게시글 id로 찾는다
 	@Override
 	public List<BoardReplyDTO> readReply(int id) {
-		return dao.readReply(id);
+		return boardReplyDAO.readReply(id);
 	}
 
 	@Override
 	public void writerReply(BoardReplyDTO reply) {
-		dao.writerReply(reply);
+		boardReplyDAO.writerReply(reply);
 	}
 
 	@Override
 	public void delReply(int no) {
-		dao.delReply(no);
+		boardReplyDAO.delReply(no);
 	}
 
 }

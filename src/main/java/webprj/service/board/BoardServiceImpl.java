@@ -13,48 +13,48 @@ import webprj.dto.board.BoardDTO;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	BoardDAO boarddao;
+	BoardDAO boardDAO;
 	
 	@Override
 	public List<BoardDTO> getAllboard(int page,String f,String q) {
-		return boarddao.getAllboard(page,f,q);
+		return boardDAO.getAllboard(page,f,q);
 	}
 
 	@Override
 	public void WriteBoard(BoardDTO board) {
-		boarddao.WriteBoard(board);
+		boardDAO.WriteBoard(board);
 	}
 
 	@Override
 	@Transactional
 	public BoardDTO getboard(int id) {
-		boarddao.addHit(id);
-		return boarddao.getboard(id);
+		boardDAO.addHit(id);
+		return boardDAO.getboard(id);
 	}
 
 	@Override
 	public int countboard(String f,String q) {
-		return boarddao.countboard(f,q);
+		return boardDAO.countboard(f,q);
 	}
 
 	@Override
 	public void deleteboard(int id) {
-		boarddao.deleteboard(id);
+		boardDAO.deleteboard(id);
 	}
 
 	@Override
 	public void modifyboard(BoardDTO board) {
-		boarddao.modifyboard(board);
+		boardDAO.modifyboard(board);
 	}
 
 	@Override
 	public List<BoardDTO> gethittop3() {
-		return boarddao.gethittop3();
+		return boardDAO.gethittop3();
 	}
 
 	@Override
 	public String getTitle(int id) {
-		return boarddao.getTitle(id);
+		return boardDAO.getTitle(id);
 	}
 
 }

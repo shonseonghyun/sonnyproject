@@ -1,10 +1,12 @@
 package webprj.controller.login;
 
+import java.io.IOException;
 import java.util.Random;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -42,6 +44,7 @@ public class LoginController {
 	@RequestMapping(value="login", method = RequestMethod.GET)
 	public ModelAndView getloginpage(ModelAndView mav,HttpServletRequest request) {
 //		Map<String,?> map = RequestContextUtils.getInputFlashMap(request);
+		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("name") != null) { //이미 로그인한 경우
 			mav.setViewName("redirect:/football/main");
@@ -56,20 +59,19 @@ public class LoginController {
 	
 	//로그인하기
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String doLogin(@ModelAttribute MemberDTO member,HttpServletRequest request, RedirectAttributes rttr) {
+	public String doLogin(@ModelAttribute MemberDTO member,HttpServletRequest request, 
+			HttpServletResponse response,RedirectAttributes rttr) throws IOException {
 		
 		HttpSession session = request.getSession();
-		
 		MemberDTO dto=memberService.doLogin(member); //인코딩된 pwd 가진 MemberDTO객체 반화
-		
 		if(dto != null) { //아이다가 존재할 경우
 			if(pwdEncoder.matches(member.getPwd(), dto.getPwd())) { // 비밀번호가 일치할 경우
-				
 				//session저장
 				session.setAttribute("name", dto.getName());
 				session.setAttribute("id", member.getId());
+				String uri =(String) session.getAttribute("uri");
+				return "redirect:" + (uri != null ? uri : "/football/main");
 				
-				return "redirect:/football/main";
 			}else { //비밀번호가 일치하지 않는 경우
 				rttr.addFlashAttribute("exist", "N");
 				return "redirect:/football/login";  //로그인 페이지 이동
@@ -158,5 +160,12 @@ public class LoginController {
 		
 		return Integer.toString(checkNum);
 		
+	}
+	
+	@RequestMapping("abc")
+	public void ad(HttpSession session,HttpServletResponse response) throws IOException {
+		if(session.getAttribute("id")==null) {
+			response.sendRedirect("a");
+		}
 	}
 }

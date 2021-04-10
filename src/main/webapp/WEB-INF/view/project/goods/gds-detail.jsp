@@ -11,6 +11,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".add-btn").on("click",function(){
+			if(${empty sessionScope.id}){
+				alert("로그인이 필요합니다");
+			}else{
+				var pro={
+					id :  $(".id").val(),
+					gds_id : $(".gds_id").val(),
+					amount : $("#quantity").val()
+				}
+				$.ajax({
+					type:"post",
+					contentType: "application/json",
+					url : "order",
+					data: JSON.stringify(pro),
+					error : function(){
+						alert("상품 담기 완료");
+					}
+				})
+			}
+		})
+	})
+</script>
 </head>
 <body>
 	<%@ include file="../include/header.jsp" %>

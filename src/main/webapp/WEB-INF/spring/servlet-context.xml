@@ -42,6 +42,17 @@
 	    </props>
 	    </property>
   </bean>
+   <mvc:interceptors>
+  	<mvc:interceptor>
+  		<mvc:mapping path="/football/board/write"/>
+  		<mvc:mapping path="/football/cart"/>
+  		<bean class="webprj.interceptor.Interceptor" />
+  	</mvc:interceptor>
+  	<mvc:interceptor>
+  		<mvc:mapping path="/football/login"/>
+  		<bean class="webprj.interceptor.MoveBeforeUriInterceptor"></bean>
+  	</mvc:interceptor>
+  </mvc:interceptors> 
 	
 	
 </beans>

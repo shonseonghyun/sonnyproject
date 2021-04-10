@@ -33,7 +33,7 @@
 	            </figcaption>
             </a>
         </figure>
-        <figure>
+       <!--  <figure>
       	  <a href="cart/list">
             <img src="/project/images/3.jpg" alt="없다">
             <figcaption>
@@ -46,7 +46,7 @@
             <figcaption>
                 <h2>ProjectTitle</h2>
             </figcaption>
-        </figure>
+        </figure> -->
     </div>
 </body>
 </html>

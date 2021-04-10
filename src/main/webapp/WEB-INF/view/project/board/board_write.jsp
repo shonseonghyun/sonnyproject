@@ -11,15 +11,17 @@
 <title>게시판 작성</title>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	$(document).on('click','.listbtn',function(e){
-		e.preventDefault();
-		location.href="/football/board";
+	$(function(){
+		$(document).on('click','.listbtn',function(e){
+			e.preventDefault();
+			location.href="/football/board";
+			})
+			
+		$(document).on('click','.writebtn',function(e){
+			e.preventDefault();
+			$("#frm").submit();
 		})
-		
-	$(document).on('click','.writebtn',function(e){
-		e.preventDefault();
-		$("#frm").submit();
-		})
+	})
 </script>
 </head>
 <body>

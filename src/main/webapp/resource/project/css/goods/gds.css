@@ -56,5 +56,6 @@ li :hover img{
 	background-color: rgba(1,1,0,0);
 	color: skyblue; padding: 8px;
 	border-radius: 10px;
+	cursor: pointer;
 }
 button.reg-btn:hover{ color:white; background-color: skyblue; }

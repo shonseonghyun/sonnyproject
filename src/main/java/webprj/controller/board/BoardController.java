@@ -1,8 +1,6 @@
 package webprj.controller.board;
 
-import java.io.File;
 import java.util.List;
-import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,13 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import webprj.dto.board.BoardDTO;
@@ -30,7 +26,7 @@ import webprj.service.board.reply.BoardReplyService;
 public class BoardController {
 
 	@Autowired
-	BoardService boardservice;
+	BoardService boardService;
 	
 	@Autowired
 	BoardReplyService replyservice;
@@ -43,13 +39,13 @@ public class BoardController {
 			@RequestParam(defaultValue = "") String q
 			){
 		
-		int count=boardservice.countboard(f,q);
+		int count=boardService.countboard(f,q);
 		PageMaker pagemaker=new PageMaker(count,page);
 		mav.addObject("p",pagemaker);
 		
-		List<BoardDTO> list=boardservice.getAllboard(page,f,q);
+		List<BoardDTO> list=boardService.getAllboard(page,f,q);
 		mav.addObject("list", list);
-		mav.addObject("top3", boardservice.gethittop3());
+		mav.addObject("top3", boardService.gethittop3());
 		mav.setViewName("project/board/board");
 		return mav;
 	}
@@ -79,7 +75,7 @@ public class BoardController {
 		//BoardDTO dto에 넣기
 		dto.setWriter_id(id);
 		//WrtieBoard method 호출
-		boardservice.WriteBoard(dto);
+		boardService.WriteBoard(dto);
 		return "redirect:/football/board";
 	}
 	
@@ -87,10 +83,10 @@ public class BoardController {
 	//특정 게시글 조회
 	@RequestMapping("/detail")
 	public ModelAndView detail(@RequestParam int id,ModelAndView mav) {
-		BoardDTO board= boardservice.getboard(id);
+		BoardDTO board= boardService.getboard(id);
 		mav.addObject("detail", board);
-		mav.addObject("prev_title",boardservice.getTitle(board.getPrev()));
-		mav.addObject("next_title",boardservice.getTitle(board.getNext()));
+		mav.addObject("prev_title",boardService.getTitle(board.getPrev()));
+		mav.addObject("next_title",boardService.getTitle(board.getNext()));
 		mav.addObject("reply", replyservice.readReply(id));
 		mav.setViewName("project/board/board_detail");
 		return mav;
@@ -111,14 +107,14 @@ public class BoardController {
 	//게시판 글 삭제
 	@RequestMapping("/delete")
 	public String deleteboard(@RequestParam int id) {
-		boardservice.deleteboard(id);
+		boardService.deleteboard(id);
 		return "redirect:/football/board";
 	}
 	
 	//게시판 글 수정
 	@RequestMapping(value="/modify",method = RequestMethod.GET)
 	public ModelAndView getModifyform(@RequestParam int id,ModelAndView mav) {
-		mav.addObject("detail", boardservice.getboard(id));
+		mav.addObject("detail", boardService.getboard(id));
 		mav.setViewName("project/board/modify");
 		return mav;
 	}
@@ -128,7 +124,7 @@ public class BoardController {
 	public ResponseEntity<String> postModify(@RequestBody BoardDTO board){
 		ResponseEntity<String> res=null;
 		try {
-			boardservice.modifyboard(board);
+			boardService.modifyboard(board);
 			res=new ResponseEntity("t",HttpStatus.CREATED);
 	
 		}catch (Exception e) {

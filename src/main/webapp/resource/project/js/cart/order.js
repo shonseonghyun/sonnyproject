@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 	$(".add-btn").on("click",function(){
 		var pro={
 			id :  $(".id").val(),
@@ -15,4 +15,4 @@ $(function(){
 			}
 		})
 	})
-});
+});*/

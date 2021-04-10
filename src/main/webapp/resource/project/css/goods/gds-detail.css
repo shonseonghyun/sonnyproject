@@ -38,6 +38,7 @@ span,h2,.quantity-div{
 input{
 	width: 60px;
 	height: 20px;
+	text-align: right;
 }
 
 input::-webkit-outer-spin-button,

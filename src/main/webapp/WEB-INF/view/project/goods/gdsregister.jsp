@@ -31,7 +31,12 @@
 				</tr>
 				<tr>
 					<td><label for="gds_price">가격</label></td>
-					<td><input type="text" name="gds_price" id="gds_price"></td>
+					<td>
+						<!--Form으로 실제 넘어가는 데이터는 hidden의 val값!!  -->
+						<input type="hidden" id="gds_price" name="gds_price" value />
+						<!--밑에 input은 눈속임! -->
+						<input style="text-align: right;" type="text" id="price">
+					</td>
 				</tr>
 				<tr>
 					<td><label for="gds_descr">설명</label></td>

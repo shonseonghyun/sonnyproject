@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,12 +27,12 @@ import webprj.service.goods.GoodsService;
 public class GoodsController {
 
 	@Autowired
-	GoodsService gdsservice;
+	GoodsService goodsService;
 	
 	//상품페이지
 	@RequestMapping(value= "", method = RequestMethod.GET)
 	public ModelAndView getgds(ModelAndView mav) {
-		mav.addObject("list", gdsservice.getAllList());
+		mav.addObject("list", goodsService.getAllList());
 		mav.setViewName("project/goods/gds");
 		return mav;
 	}
@@ -41,7 +40,7 @@ public class GoodsController {
 	//특정 상품 페이지
 	@RequestMapping(value="/detail",method = RequestMethod.GET)
 	public ModelAndView getgd(@RequestParam int id, ModelAndView mav) {
-		mav.addObject("item", gdsservice.getList(id));
+		mav.addObject("item", goodsService.getList(id));
 		mav.setViewName("project/goods/gds-detail");
 		return mav;
 	}
@@ -65,7 +64,7 @@ public class GoodsController {
 		savedfilename=uploadFile(savedfilename,file.getBytes());
 		goods.setGds_writer_id( (String)session.getAttribute("id"));
 		goods.setPicture_url(savedfilename);
-		gdsservice.registerGoods(goods);
+		goodsService.registerGoods(goods);
 		return "redirect:/football/goods";
 	}
 	
@@ -89,7 +88,7 @@ public class GoodsController {
 	public ResponseEntity<String> order(@RequestBody CartDTO cart) {
 		ResponseEntity<String> res=null;
 		try {
-			gdsservice.orderGoods(cart);
+			goodsService.orderGoods(cart);
 			res=new ResponseEntity<String>("담기 성공",HttpStatus.CREATED);
 		}
 		catch(Exception e){

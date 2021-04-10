@@ -9,15 +9,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
 <title>게시판</title>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	function check(){
-			 if(${empty sessionScope.id}){
+	$(function(){
+		$(".icon").on("click",function(){
+			if(${empty sessionScope.id}){
 				alert("로그인이 필요합니다");
-			 }	
-			 else{
-				location.href="board/write";
+			}
+			else{
+				
 			}	
-	}
+		})
+	})
 </script>
 
 </head>
@@ -98,7 +101,7 @@
 		</c:if>
 		
 	</div>
-	<a style="cursor: pointer;" class="icon" >
+	<a style="cursor: pointer;" href="board/write" class="icon" >
 		<i id="write-icon" class="fas fa-edit"></i>
 	</a>
 	

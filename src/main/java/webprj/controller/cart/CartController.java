@@ -23,13 +23,13 @@ import webprj.service.goods.GoodsService;
 public class CartController {
 	
 	@Autowired
-	GoodsService gdsservice;
+	GoodsService goodsService;
 	
 	//장바구니
 	@RequestMapping(value="",method = RequestMethod.GET)
 	public ModelAndView getCartpage(ModelAndView mav,HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		List<CartDTO> OrderList = gdsservice.getOrderList((String)session.getAttribute("id"));
+		List<CartDTO> OrderList = goodsService.getOrderList((String)session.getAttribute("id"));
 		mav.addObject("OrderList",OrderList);
 		mav.setViewName("project/goods/cart");
 		return mav;
@@ -38,7 +38,7 @@ public class CartController {
 	//삭제
 	@RequestMapping(value="/delete" , method = RequestMethod.GET)
 	public String deleteOrder(@RequestParam("cart_id") int[] cart_id) {
-		gdsservice.deleteOrderList(cart_id);
+		goodsService.deleteOrderList(cart_id);
 		return "redirect:/football/cart";
 	}
 	
@@ -48,7 +48,7 @@ public class CartController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("cart_id",cart_id);
 		map.put("qty",qty);
-		gdsservice.modifyQty(map);
+		goodsService.modifyQty(map);
 		return "수정 성공";
 	}
 

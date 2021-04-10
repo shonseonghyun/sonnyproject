@@ -11,22 +11,22 @@ import webprj.dto.member.MemberDTO;
 public class MemberDAOImpl implements MemberDAO {
 
 	@Autowired
-	SqlSession sqlsession;
+	SqlSession sqlSession;
 	
 	
 	@Override
 	public MemberDTO doLogin(MemberDTO member) {
-		return sqlsession.selectOne("member.login", member);
+		return sqlSession.selectOne("member.login", member);
 	}
 
 	@Override
 	public void signup(MemberDTO member) {
-		sqlsession.insert("member.signup", member);
+		sqlSession.insert("member.signup", member);
 	}
 
 	@Override
 	public int idcheck(String id) {
-		return sqlsession.selectOne("member.idcheck", id);
+		return sqlSession.selectOne("member.idcheck", id);
 	}
 
 }

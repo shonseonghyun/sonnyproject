@@ -15,43 +15,43 @@ import webprj.dto.goods.GoodsDTO;
 public class GoodsDAOImpl implements GoodsDAO {
 
 	@Autowired
-	SqlSession sqlsession;
+	SqlSession sqlSession;
 	
 	@Override
 	public void registerGoods(GoodsDTO dto) {
-		sqlsession.insert("goods.registerGoods", dto);
+		sqlSession.insert("goods.registerGoods", dto);
 	}
 
 	@Override
 	public List<GoodsDTO> getAllList() {
-		return sqlsession.selectList("goods.getAlllist");
+		return sqlSession.selectList("goods.getAlllist");
 	}
 
 	@Override
 	public GoodsDTO getList(int id) {
-		return sqlsession.selectOne("goods.getlist", id);
+		return sqlSession.selectOne("goods.getlist", id);
 	}
 
 	@Override
 	public void orderGoods(CartDTO cart) {
-		sqlsession.insert("goods.order", cart);
+		sqlSession.insert("goods.order", cart);
 	}
 
 	@Override
 	public List<CartDTO> getOrderList(String id) {
-		return sqlsession.selectList("goods.getOrderList",id);
+		return sqlSession.selectList("goods.getOrderList",id);
 	}
 
 	@Override
 	public void deleteOrderList(int[] cart_id) {
 		HashMap<String, Object> map= new HashMap<>();
 		map.put("OrderList", cart_id);
-		sqlsession.delete("goods.deleteOrderList", map);
+		sqlSession.delete("goods.deleteOrderList", map);
 	}
 
 	@Override
 	public void modifyQty(Map<String, Object> map) {
-		sqlsession.update("goods.modifyQty", map);
+		sqlSession.update("goods.modifyQty", map);
 	}
 
 
