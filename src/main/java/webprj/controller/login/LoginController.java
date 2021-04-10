@@ -59,7 +59,7 @@ public class LoginController {
 	
 	//로그인하기
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String doLogin(@ModelAttribute MemberDTO member,HttpServletRequest request, 
+	public void doLogin(@ModelAttribute MemberDTO member,HttpServletRequest request, 
 			HttpServletResponse response,RedirectAttributes rttr) throws IOException {
 		
 		HttpSession session = request.getSession();
@@ -69,17 +69,15 @@ public class LoginController {
 				//session저장
 				session.setAttribute("name", dto.getName());
 				session.setAttribute("id", member.getId());
-				String uri =(String) session.getAttribute("uri");
-				return "redirect:" + (uri != null ? uri : "/football/main");
 				
 			}else { //비밀번호가 일치하지 않는 경우
 				rttr.addFlashAttribute("exist", "N");
-				return "redirect:/football/login";  //로그인 페이지 이동
+				response.sendRedirect("/football/login");  //로그인 페이지 이동
 			}
 		}
 		else { //아이디가 존재하지 않을 경우
 			rttr.addFlashAttribute("exist", "N");
-			return "redirect:/football/login";  //로그인 페이지 이동
+			response.sendRedirect("/football/login");  //로그인 페이지 이동
 		}
 	}
 	
