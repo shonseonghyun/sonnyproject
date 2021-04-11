@@ -15,6 +15,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,7 +61,7 @@ public class LoginController {
 	//로그인하기
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public void doLogin(@ModelAttribute MemberDTO member,HttpServletRequest request, 
-			HttpServletResponse response,RedirectAttributes rttr) throws IOException {
+			HttpServletResponse response,RedirectAttributes rttr,Model model) throws IOException {
 		
 		HttpSession session = request.getSession();
 		MemberDTO dto=memberService.doLogin(member); //인코딩된 pwd 가진 MemberDTO객체 반화
@@ -72,11 +73,13 @@ public class LoginController {
 				
 			}else { //비밀번호가 일치하지 않는 경우
 				rttr.addFlashAttribute("exist", "N");
+				model.addAttribute("exist", "N");
 				response.sendRedirect("/football/login");  //로그인 페이지 이동
 			}
 		}
 		else { //아이디가 존재하지 않을 경우
 			rttr.addFlashAttribute("exist", "N");
+			model.addAttribute("exist", "N");
 			response.sendRedirect("/football/login");  //로그인 페이지 이동
 		}
 	}

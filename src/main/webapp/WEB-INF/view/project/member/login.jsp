@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/project/css/member/log.css">
 <script type="text/javascript">
+	console.log(${exist});
 	function signup(){
 		url="signup";
 		window.open(url,"signup",width=570,height=590);
