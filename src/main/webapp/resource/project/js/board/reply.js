@@ -13,12 +13,12 @@ $(document).ready(function(){
 	*/
 	
 	$("#replyBtn").on("click",function(){
-		if($("#reply-div").is(':visible')){
-			$("#reply-div").css("display","none");
+		if($("#replyRegister-div").is(':visible')){
+			$("#replyRegister-div").css("display","none");
 			$(this).text("댓글 작성 열기");
 		}
 		else{
-			$("#reply-div").css("display","block");
+			$("#replyRegister-div").css("display","block");
 			$(this).text("댓글 작성 닫기");
 		}
 	})

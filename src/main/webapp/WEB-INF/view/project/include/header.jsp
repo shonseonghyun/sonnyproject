@@ -26,7 +26,7 @@
 <body>
 <div class="header-div">
 		<c:if test="${sessionScope.id != null }">
-			${sessionScope.name }님
+			<span>${sessionScope.name }님 안녕하세요</span>
 		</c:if>
 		<ul>
 			<c:if test="${sessionScope.id != null }">

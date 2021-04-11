@@ -73,3 +73,27 @@ td{
 .prev , .next{
 	cursor: pointer;
 }
+
+
+.reply-div{
+	position: relative;
+	width: 800px;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.sub-td{
+	width: 700px;
+}
+.wirter-td{
+	width: 50px;
+}
+.date-td{
+	width: 50px;
+}
+
+.reply-btn-div{
+	margin-top: 10px;
+}

@@ -157,15 +157,8 @@ public class LoginController {
 		} catch(MessagingException e) { // TODO Auto-generated catch block
 			e.printStackTrace(); }
 		
-		
 		return Integer.toString(checkNum);
 		
 	}
 	
-	@RequestMapping("abc")
-	public void ad(HttpSession session,HttpServletResponse response) throws IOException {
-		if(session.getAttribute("id")==null) {
-			response.sendRedirect("a");
-		}
-	}
 }

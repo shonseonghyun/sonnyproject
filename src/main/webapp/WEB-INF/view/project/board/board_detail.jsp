@@ -57,10 +57,10 @@
             </tr>
             <tr>
               <td colspan="4">
-              	<a class="btn" href="/football/board">목록</a>
+              	<button type="button" class="btn"><a href="/football/board">목록</a></button>
               	 <c:if test="${(sessionScope.id ==  detail.writer_id) || (sessionScope.id =='admin') }">
-	              	<button id="modiftBtn" type="button">수정</button>
-	              	<button id="delBtn" type="button">삭제</button>
+	              	<button class="btn" id="modiftBtn" type="button">수정</button>
+	              	<button class="btn" id="delBtn" type="button">삭제</button>
     			 </c:if>
               	</td>
             </tr>
@@ -97,9 +97,34 @@
 
           </tbody>
         </table>
-        <p id="replyBtn" style="cursor: pointer;">댓글 작성 열기</p>
         
-        <div id="reply-div" style="display: none;">
+        <div class="reply-div">
+		<h2>Reply</h2>
+		<div>
+			<table>
+				<tr>
+					<td class="sub-td">subject</td>
+					<td class="writer-td">Writer</td>
+					<td class="date-td">Date</td>
+					<td></td>
+				</tr>
+				<c:forEach items="${reply}" var="reply">
+					<tr>
+						<td>${reply.content}</td>
+						<td>${reply.writer_id}</td>
+						<td>${reply.regdate}</td>
+						<td>
+							<button class="delReplyBtn" data-id=${detail.id } data-no="${reply.no}">X</button>
+						</td>
+					</tr>
+		        </c:forEach>
+			</table>
+		</div>
+		
+		<div class="reply-btn-div">
+			<button id="replyBtn" type="button">작성</button>
+		</div>
+		<div id="replyRegister-div" style="display: none;">
 	        <form action="replywrite" method="post">
 	        	<input type="hidden" name="id" value="${detail.id}">
 	        	<input type="text" name="content">
@@ -107,20 +132,10 @@
 	        	<input type="submit" value="댓글 작성">
 	        </form>
         </div>
+		
+	</div>
         
-        <div>
-	        <ol>
-		        <c:forEach items="${reply}" var="reply">
-		        	<li>
-			        	${reply.content} |  ${reply.writer_id}  |  ${reply.regdate}  
-			        	<c:if test="${reply.writer_id == sessionScope.id}">
-				        	<button class="delReplyBtn" data-id=${detail.id } data-no="${reply.no}">X</button>
-			        	</c:if>
-		        	</li>
-		        </c:forEach>
-	        </ol>
-        </div>
-      </div>
+    </div>
  </body>
 <script src="https://kit.fontawesome.com/505ea0ee8f.js" crossorigin="anonymous"></script>
 <script src="/project/js/board/reply.js" ></script>

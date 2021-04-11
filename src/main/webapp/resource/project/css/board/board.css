@@ -18,7 +18,7 @@ body{
 
 		/*table*/
 .notice-table{
-	margin:70px  auto;
+	margin:70px  auto 40px auto ;
 	border-collapse: collapse;
 }
 .table-head{
@@ -67,4 +67,27 @@ a{
 .top5-div{
 	position: absolute;
 	top: 200px;
+}
+
+.search-div{
+	position:absolute;
+	right: 230px;
+    margin-top: -40px;
+}
+
+.page-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.page-div a{
+	font-size: 20px;
+	margin: 0 5px;
+}
+
+.icon{
+	position: absolute;
+    right: 230px;
+    margin-top: -30px;
 }

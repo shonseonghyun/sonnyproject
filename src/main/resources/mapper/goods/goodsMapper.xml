@@ -8,7 +8,7 @@
 	</insert>
 	
 	<select id="getAlllist" resultType="webprj.dto.goods.GoodsDTO"> 
-		select * from goods 
+		select * from goods order by regdate desc
 	</select>
 	
 	<select id="getlist" resultType="webprj.dto.goods.GoodsDTO">

@@ -20,7 +20,6 @@
 <c:if test="${exist !='N' }">
 	<body>
 </c:if>
-
     <section class="login-section">
             <a href="main"><h1>LOGO DESIGN</h1></a>
             <form name="login-form" action="login" method="post">
