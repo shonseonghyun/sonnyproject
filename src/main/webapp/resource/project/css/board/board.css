@@ -64,9 +64,9 @@ a{
 	font-size: 30px;
 }
 
-.top5-div{
-	position: absolute;
-	top: 200px;
+
+td.date {
+    font-size: 14px;
 }
 
 .search-div{

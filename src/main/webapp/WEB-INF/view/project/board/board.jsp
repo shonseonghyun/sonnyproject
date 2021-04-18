@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +48,6 @@
 			<tr class="table-head">
 				<td class="table-id">id</td>
 				<td class="table-title">제목</td>
-				
 				<td class="table-writer">작성자</td>
 				<td class="table-date">날짜</td>
 				<td class="table-hit">조회수</td>
@@ -60,7 +60,9 @@
 					<a  href="/football/board/detail?id=${b.id}">${b.title }</a>
 				</td>
 				<td>${b.writer_id }</td>
-				<td>${b.regdate }</td>
+				<td class="date">
+					<fmt:formatDate value="${b.regdate }" pattern="yyyy-MM-dd"/>
+				</td>
 				<td>${b.hit }</td>
 			</tr>
 			</c:forEach>
