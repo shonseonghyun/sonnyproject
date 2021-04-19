@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -84,7 +85,8 @@ public class GoodsController {
 	
 	
 	//상품 담기
-	@RequestMapping(value="/order",method = RequestMethod.POST ,produces = "application/json; charset=utf8")
+	@RequestMapping(value="/order",method = RequestMethod.POST,
+			produces = "application/text; charset=utf8")
 	public ResponseEntity<String> order(@RequestBody CartDTO cart) {
 		ResponseEntity<String> res=null;
 		try {
@@ -92,7 +94,7 @@ public class GoodsController {
 			res=new ResponseEntity<String>("담기 성공",HttpStatus.CREATED);
 		}
 		catch(Exception e){
-			res=new ResponseEntity<String>("f",HttpStatus.BAD_REQUEST);
+			res=new ResponseEntity<String>("다시 시도해 주세요",HttpStatus.BAD_REQUEST);
 		}
 		return res;
 	}

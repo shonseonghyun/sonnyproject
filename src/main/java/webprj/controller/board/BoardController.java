@@ -120,16 +120,16 @@ public class BoardController {
 	}
 	
 	//게시판 글 수정
+	//@ResponseBody
 	@RequestMapping(value="/modify",method = RequestMethod.POST)
 	public ResponseEntity<String> postModify(@RequestBody BoardDTO board){
 		ResponseEntity<String> res=null;
 		try {
 			boardService.modifyboard(board);
-			res=new ResponseEntity("t",HttpStatus.CREATED);
+			res=new ResponseEntity<String>("t",HttpStatus.CREATED);
 	
 		}catch (Exception e) {
-			String message="f";
-			res=new ResponseEntity("f",HttpStatus.BAD_REQUEST);
+			res=new ResponseEntity<String>("f",HttpStatus.BAD_REQUEST);
 		}
 		return res;
 	}

@@ -13,6 +13,8 @@
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
 	$(function(){
+		$("#quantity").val(1);
+		
 		$(".add-btn").on("click",function(){
 			if(${empty sessionScope.id}){
 				alert("로그인이 필요합니다");
@@ -24,11 +26,15 @@
 				}
 				$.ajax({
 					type:"post",
+					dataType : "text",
 					contentType: "application/json",
 					url : "order",
 					data: JSON.stringify(pro),
-					error : function(){
-						alert("상품 담기 완료");
+					success : function(result){
+						alert(result);
+					},
+					error : function(result){
+						alert(result);
 					}
 				})
 			}
