@@ -33,7 +33,7 @@
 					이름: <strong>${member.name}</strong>  
 					이메일: ${member.email }</p>
 				<p style="margin-left: 50px;">
-					<strong> ${member.id }</strong> ( ${member.regdate } )
+					<strong> ${member.id }</strong> ( ${member.regdate } 가입 )
 				</p>
             </div>
             <div class="btn-div">

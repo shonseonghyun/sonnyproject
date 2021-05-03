@@ -1,7 +1,6 @@
 package webprj.controller.login;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.Random;
 
 import javax.mail.MessagingException;
@@ -159,9 +158,10 @@ public class LoginController {
 			e.printStackTrace(); }
 		
 		return Integer.toString(checkNum);
-		
 	}
+
 	
+	//아이디 찾기
 	@RequestMapping(value="/find_id", method = RequestMethod.GET)
 	public String getfindidjsp() {
 		return "project/member/find_id";
@@ -184,12 +184,14 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value="/find_pwd", method = RequestMethod.GET)
+	//비밀번호 찾기
+	@RequestMapping(value="/find_pw", method = RequestMethod.GET)
 	public String getfindpwdjsp() {
-		return "project/member/find";
+		return "project/member/find_pw";
 	}
 	
-	@RequestMapping(value="/find_pwd", method = RequestMethod.POST)
-	public void find_pwd(@RequestParam("name") String name, @RequestParam("email") String email) {
+	@RequestMapping(value="/find_pw", method = RequestMethod.POST)
+	public void find_pwd(@ModelAttribute MemberDTO member) {
+		System.out.println(member);
 	}
 }

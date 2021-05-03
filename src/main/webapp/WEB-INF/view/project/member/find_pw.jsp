@@ -8,22 +8,22 @@
 <link rel="stylesheet" href="/project/css/member/find_id.css">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		if(${check}){
-			alert("이름 또는 이메일을 확인해 주세요");
-		}
-	})
+
 </script>
-<title>아이디 찾기</title>
+<title>비밀번호 찾기</title>
 </head>
 	<body>
 	
     <section class="login-section">
-            <h1>Find ID</h1>
-            <form name="login-form" action="find_id" method="post">
+            <h1>FIND PASSWORD</h1>
+            <form name="login-form" action="find_pw" method="post">
 	            <div class="login-area">
-	                <input type="text" name="name" id="name" autocomplete="off" required>
-	                <label for="name">이름</label>
+	                <input type="text" name="id" id="id" autocomplete="off" required>
+	                <label for="name">아이디</label>
+	            </div>
+	            <div class="login-area">
+	                <input type="text" name="name" id="name" autocomplete="off" required> 
+	                <label for="email">이름</label>
 	            </div>
 	            <div class="login-area">
 	                <input type="text" name="email" id="email" autocomplete="off" required> 
