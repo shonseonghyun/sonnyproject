@@ -1,6 +1,7 @@
 package webprj.controller.login;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Random;
 
 import javax.mail.MessagingException;
@@ -161,4 +162,34 @@ public class LoginController {
 		
 	}
 	
+	@RequestMapping(value="/find_id", method = RequestMethod.GET)
+	public String getfindidjsp() {
+		return "project/member/find_id";
+	}
+	
+	@RequestMapping(value="/find_id", method = RequestMethod.POST)
+	public ModelAndView find_id(@RequestParam("name") String name, @RequestParam("email") String email,
+			HttpServletResponse response,RedirectAttributes rttr,ModelAndView mav) {
+		MemberDTO member = memberService.findId(name, email);
+		String id=member.getId();
+		if(id == null) {
+			rttr.addFlashAttribute("check", true);
+			mav.setViewName("redirect:/football/find_id");
+			return mav;
+		}else {
+			mav.addObject("member", member);
+			mav.setViewName("project/member/find_id_result");
+			return mav;
+		}
+		
+	}
+	
+	@RequestMapping(value="/find_pwd", method = RequestMethod.GET)
+	public String getfindpwdjsp() {
+		return "project/member/find";
+	}
+	
+	@RequestMapping(value="/find_pwd", method = RequestMethod.POST)
+	public void find_pwd(@RequestParam("name") String name, @RequestParam("email") String email) {
+	}
 }

@@ -7,10 +7,6 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/project/css/member/log.css">
 <script type="text/javascript">
-	function signup(){
-		url="signup";
-		window.open(url,"signup",width=570,height=590);
-		}
 </script>
 <title>로그인 페이지</title>
 </head>
@@ -23,26 +19,31 @@
     <section class="login-section">
             <a href="main"><h1>LOGO DESIGN</h1></a>
             <form name="login-form" action="login" method="post">
-            <div class="login-area">
-                <input type="text" name="id" id="id" autocomplete="off" required>
-                <label for="id">아이디</label>
-            </div>
-            <div class="login-area">
-                <input type="password" name="pwd" id="pw" autocomplete="off" required> 
-                <label for="pw">비밀번호</label>
-            </div>
-            <div class="bt-area">
-            	<div class="autologin-div">
-	                <input type="checkbox" name="autologin" value="true" checked="checked">자동로그인
-            	</div>
-                <input type="submit" value="로그인">
-            </div>
-            <div class="bt-area">
-                <input name="sign-btn" onclick="signup()" type="button" value="회원가입">
-            </div>
-            <div class="caption">
-                <a href="#">아이디 및 비밀번호 찾기</a>
-            </div>
+	            <div class="login-area">
+	                <input type="text" name="id" id="id" autocomplete="off" required>
+	                <label for="id">아이디</label>
+	            </div>
+	            <div class="login-area">
+	                <input type="password" name="pwd" id="pw" autocomplete="off" required> 
+	                <label for="pw">비밀번호</label>
+	            </div>
+	            
+	           <div class="bt-area">
+	            	<div class="autologin-div">
+		                <input type="checkbox" name="autologin" value="true" checked="checked">자동로그인
+	            	</div>
+	                <input type="submit" value="로그인">
+	            </div>
+	            <div class="bt-area">
+	                <input name="sign-btn" onclick="signup()" type="button" value="회원가입">
+	            </div>
+	            <div class="caption">
+	                <a href="find_id">아이디 </a>
+	                 및
+	                <a href="find_id">비밀번호</a>
+	                 찾기
+	            </div>
+	            
         </form>
     </section>
  </body>

@@ -56,7 +56,7 @@
 					</tr>
 					<tr>
 						<td  colspan="2">
-							<span  style="display: block; margin-bottom: 20px;">
+							<span  style="display: block; margin-bottom: 20px;  font-size: 16px;">
 								총 상품 금액
 							</span>
 							<span class="Total_Amount">

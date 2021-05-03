@@ -13,4 +13,8 @@
 	<select id="idcheck" resultType="int">
 		select count(*) from PFMEMBER WHERE ID = #{id}
 	</select>
+	
+	<select  id="find_id" resultType="webprj.dto.member.MemberDTO">
+		select * from PFMEMBER where name=#{name} and email =#{email}
+	</select>
 </mapper>

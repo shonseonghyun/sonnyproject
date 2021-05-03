@@ -12,4 +12,6 @@ public interface MemberDAO {
 	//중복확인
 	public int idcheck(String id);
 	
+	//아이디 찾기
+	public MemberDTO findId(String name,String email);
 }

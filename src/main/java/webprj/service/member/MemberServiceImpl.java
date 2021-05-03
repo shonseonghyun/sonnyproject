@@ -27,4 +27,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.idcheck(id);
 	}
 
+	@Override
+	public MemberDTO findId(String name, String email) {
+		return memberDAO.findId(name, email);
+	}
+
 }

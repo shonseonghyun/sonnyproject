@@ -28,13 +28,15 @@ body::before{
 }
 
 .login-area{
+	display:flex;
+	justify-content:center;
     position: relative;
     width: 400px;
     margin-bottom:30px ;
 }
 
 .login-area input{
-    width: 100%;
+    width: 70%;
     padding: 20px   5px 5px;
     background-color: transparent;
     border: none;
@@ -47,7 +49,7 @@ body::before{
 label{
     position: absolute;
     z-index: -1;
-    left: 0;
+    left: 50px;
     top:20px;
     font-size: 18px;
     color:#999;
@@ -63,7 +65,7 @@ label{
 }
 
 input[type="submit"],input[type="button"]{
-    width: 100%;
+    width: 70%;
     height: 40px;
     border-radius: 30px;
     border: none;
@@ -73,19 +75,17 @@ input[type="submit"],input[type="button"]{
     cursor: pointer;
 }
 .bt-area{
+	display:flex;
+	justify-content:center;
     margin-bottom: 20px;
 }
 
-.caption{
-    margin-top: 20px;
-    text-align: center;
-     color:#999;
+a{
+    color:#999;
+    text-decoration: none;
     font-size: 20px;
 }
 
-a{
-    text-decoration: none;
-}
 @keyframes zizin{
     0%{transform: translateX(8px);}
     25%{transform:translateX(-8px);}

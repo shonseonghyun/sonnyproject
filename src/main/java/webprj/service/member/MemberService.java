@@ -1,7 +1,5 @@
 package webprj.service.member;
 
-import javax.servlet.http.HttpSession;
-
 import webprj.dto.member.MemberDTO;
 
 public interface MemberService {
@@ -13,5 +11,8 @@ public interface MemberService {
 	
 	//중복확인
 	public int idcheck(String id);
-		
+
+	//아이디 찾기
+	public MemberDTO findId(String name,String email);
+
 }

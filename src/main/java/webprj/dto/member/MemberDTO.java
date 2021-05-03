@@ -19,7 +19,7 @@ public class MemberDTO {
 	@Pattern(regexp = "[가-힣]{2,6}")
 	private String name;
 	
-	private Date date ;
+	private Date regdate ;
 	private String autologin;
 	
 	
@@ -54,16 +54,16 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
 	@Override
 	public String toString() {
-		return "MemberDTO [id=" + id + ", pwd=" + pwd + ", email=" + email + ", name=" + name + ", date=" + date
-				+  ", autologin=" + autologin + "]";
+		return "MemberDTO [id=" + id + ", pwd=" + pwd + ", email=" + email + ", name=" + name + ", regdate=" + regdate
+				+ ", autologin=" + autologin + "]";
+	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
 
 }
