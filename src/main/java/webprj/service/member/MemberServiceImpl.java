@@ -28,8 +28,13 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public MemberDTO findId(String name, String email) {
-		return memberDAO.findId(name, email);
+	public MemberDTO findId(String name, String email,String id) {
+		return memberDAO.findId(name, email,id);
+	}
+
+	@Override
+	public void changePw(String id, String temp_pw) {
+		memberDAO.changePw(id, temp_pw);
 	}
 
 }

@@ -13,6 +13,9 @@ public interface MemberService {
 	public int idcheck(String id);
 
 	//아이디 찾기
-	public MemberDTO findId(String name,String email);
+	public MemberDTO findId(String name,String email,String id);
+	
+	//임시비밀번호 전송 후 수정 or 비밀번호 수정
+	public void changePw(String id, String temp_pw);
 
 }

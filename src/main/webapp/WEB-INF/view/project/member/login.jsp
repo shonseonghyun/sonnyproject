@@ -7,6 +7,10 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/project/css/member/log.css">
 <script type="text/javascript">
+	function signup(){
+		url="signup";
+		window.open(url,"signup","width=800,height=500,left=250,top=100");
+	}
 </script>
 <title>로그인 페이지</title>
 </head>
@@ -40,7 +44,7 @@
 	            <div class="caption">
 	                <a href="find_id">아이디 </a>
 	                 및
-	                <a href="find_id">비밀번호</a>
+	                <a href="find_pw">비밀번호</a>
 	                 찾기
 	            </div>
 	            

@@ -14,7 +14,15 @@
 		select count(*) from PFMEMBER WHERE ID = #{id}
 	</select>
 	
-	<select  id="find_id" resultType="webprj.dto.member.MemberDTO">
+	<select  id="find" resultType="webprj.dto.member.MemberDTO">
 		select * from PFMEMBER where name=#{name} and email =#{email}
+		<if test="id != '' ">
+			and id = #{id}
+		</if>
 	</select>
+	
+	<update id="changepwd">
+		update pfmember set pwd=#{temp_pw} where id=#{id} 
+	</update>
+	
 </mapper>

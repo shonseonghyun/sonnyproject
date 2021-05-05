@@ -33,11 +33,20 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public MemberDTO findId(String name, String email) {
+	public MemberDTO findId(String name, String email, String id) {
 		Map<String,String> map = new HashMap<>();
 		map.put("name", name);
+		map.put("id", id);
 		map.put("email", email);
-		return sqlSession.selectOne("member.find_id", map);
+		return sqlSession.selectOne("member.find", map);
+	}
+
+	@Override
+	public void changePw(String id, String temp_pw) {
+		Map<String,String> map = new HashMap<>();
+		map.put("id", id);
+		map.put("temp_pw", temp_pw);
+		sqlSession.update("member.changepwd", map);
 	}
 
 }

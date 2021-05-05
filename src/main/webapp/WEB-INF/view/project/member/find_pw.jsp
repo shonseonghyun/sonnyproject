@@ -8,12 +8,15 @@
 <link rel="stylesheet" href="/project/css/member/find_id.css">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript">
-
+	$(function(){
+		if(${check}){
+			alert("입력하신 [아이디 : ${id} ]로 가입이 존재하지 않습니다.");
+		}
+	})
 </script>
 <title>비밀번호 찾기</title>
 </head>
 	<body>
-	
     <section class="login-section">
             <h1>FIND PASSWORD</h1>
             <form name="login-form" action="find_pw" method="post">
