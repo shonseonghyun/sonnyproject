@@ -1,28 +1,29 @@
 @charset "UTF-8";
-*{
+/* *{
 	font-family: 'Gaegu', cursive;
-}
+} */
 .header-div{
 	text-align:right;
-	margin:10px 10px; 
+	margin:10px 10px 30px 10px; 
 	font-size : 25px;
-}
-a{
-	text-decoration: none;
 }
 
 #LogoutBtn{
 	cursor: pointer;
 }
 
-ul{
+.main-ul{
 	margin: 0;
 	padding:0;
 }
 
-li{
+.main-ul li{
 	display: inline-block;
 	list-style: none;
 	padding-right: 5px;
 	
+}
+.main-ul li a{
+	color:black;
+	text-decoration: none;
 }

@@ -16,5 +16,16 @@ public interface MemberDAO {
 	public MemberDTO findId(String name,String email ,String id);
 	
 	//임시비밀번호 전송 후 수정
+	//마이페이지 비밀번호 변경
 	public void changePw(String id, String temp_pw);
+	
+	//마이페이지 부분 시작
+	//마이페이지
+	public MemberDTO getMyInformation(String id);
+	
+	//
+	public String changePwdWithId(String id);
+	
+	//마이피에지 아이디 변경
+	
 }

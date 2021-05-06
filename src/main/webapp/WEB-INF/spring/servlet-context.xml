@@ -41,19 +41,23 @@
 	      <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
 	    </props>
 	    </property>
-  </bean>
-   <mvc:interceptors>
-  	<mvc:interceptor>
-  		<mvc:mapping path="/football/board/write"/>
-  		<mvc:mapping path="/football/cart"/>
-  		<mvc:mapping path="/football/board/replywrite"/>
-  		<bean class="webprj.interceptor.Interceptor" />
-  	</mvc:interceptor>
-  	<mvc:interceptor>
-  		<mvc:mapping path="/football/login"/>
-  		<bean class="webprj.interceptor.MoveBeforeUriInterceptor"></bean>
-  	</mvc:interceptor>
-  </mvc:interceptors> 
+  	</bean>
+  	
+	<mvc:interceptors>
+	  	<mvc:interceptor>
+	  		<mvc:mapping path="/football/board/write"/>
+	  		<mvc:mapping path="/football/cart"/>
+	  		<mvc:mapping path="/football/find_id"/>
+	  		<mvc:mapping path="/football/find_pw"/>
+	  		<mvc:mapping path="/football/mypage/**"/>
+	  		<mvc:mapping path="/football/board/replywrite"/>
+	  		<bean class="webprj.interceptor.Interceptor" />
+	  	</mvc:interceptor>
+	  	<mvc:interceptor>
+	  		<mvc:mapping path="/football/login"/>
+	  		<bean class="webprj.interceptor.MoveBeforeUriInterceptor"></bean>
+	  	</mvc:interceptor>
+  	</mvc:interceptors> 
 	
 	
 </beans>

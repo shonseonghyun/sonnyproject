@@ -37,4 +37,14 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.changePw(id, temp_pw);
 	}
 
+	@Override
+	public MemberDTO getMyInformation(String id) {
+		return memberDAO.getMyInformation(id);
+	}
+
+	@Override
+	public String changePwdWithId(String id) {
+		return memberDAO.changePwdWithId(id);
+	}
+
 }

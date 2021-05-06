@@ -6,9 +6,6 @@
 		select name,PWD from PFMEMBER where id=#{id}
 	</select>
 	
-	<insert id="signup">
-		insert into PFMEMBER(id,name,PWD,email) values(#{id},#{name},#{pwd},#{email})
-	</insert>
 		
 	<select id="idcheck" resultType="int">
 		select count(*) from PFMEMBER WHERE ID = #{id}
@@ -21,8 +18,20 @@
 		</if>
 	</select>
 	
+	<select id="getMyInformation" resultType="webprj.dto.member.MemberDTO">
+			select * from PFMEMBER where id=#{id}
+	</select>
+	
+	<select id="changePwdWithId" resultType="String">
+		SELECT PWD FROM PFMEMBER WHERE ID=#{id} 
+	</select>
+	
 	<update id="changepwd">
-		update pfmember set pwd=#{temp_pw} where id=#{id} 
+		update pfmember set pwd=#{pw} where id=#{id}
 	</update>
 	
+	<insert id="signup">
+		insert into PFMEMBER(id,name,PWD,email) values(#{id},#{name},#{pwd},#{email})
+	</insert>
+
 </mapper>

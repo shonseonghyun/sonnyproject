@@ -26,12 +26,12 @@
 <body>
 <div class="header-div">
 		<c:if test="${sessionScope.id != null }">
-			<span>${sessionScope.name }님 안녕하세요</span>
+			<span> <strong>${sessionScope.name } </strong>님 안녕하세요</span>
 		</c:if>
-		<ul>
+		<ul class="main-ul">
 			<c:if test="${sessionScope.id != null }">
 				<li><a href="/football/main">main</a></li>
-				<li><a href="">mypage</a></li>
+				<li><a href="/football/mypage">mypage</a></li>
 				<li><a href="/football/cart">cart</a></li>
 				<li><span id="LogoutBtn">logout</span></li>
 			</c:if>

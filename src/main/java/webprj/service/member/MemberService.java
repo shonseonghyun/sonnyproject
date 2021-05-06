@@ -18,4 +18,15 @@ public interface MemberService {
 	//임시비밀번호 전송 후 수정 or 비밀번호 수정
 	public void changePw(String id, String temp_pw);
 
+	//마이페이지 부분 시작
+	//마이페이지
+	public MemberDTO getMyInformation(String id);
+
+	//
+	public String changePwdWithId(String id);
+	
+	//마이피에지 아이디 변경
+	
+	
+	
 }

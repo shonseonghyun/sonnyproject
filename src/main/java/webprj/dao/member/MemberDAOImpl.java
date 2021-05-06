@@ -45,8 +45,18 @@ public class MemberDAOImpl implements MemberDAO {
 	public void changePw(String id, String temp_pw) {
 		Map<String,String> map = new HashMap<>();
 		map.put("id", id);
-		map.put("temp_pw", temp_pw);
+		map.put("pw", temp_pw);
 		sqlSession.update("member.changepwd", map);
+	}
+
+	@Override
+	public MemberDTO getMyInformation(String id) {
+		return sqlSession.selectOne("member.getMyInformation", id);
+	}
+
+	@Override
+	public String changePwdWithId(String id) {
+		return sqlSession.selectOne("member.changePwdWithId", id);
 	}
 
 }
