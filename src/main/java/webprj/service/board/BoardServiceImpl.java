@@ -57,4 +57,14 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.getTitle(id);
 	}
 
+	@Override
+	public int countMyBoard(String id) {
+		return boardDAO.countMyBoard(id);
+	}
+
+	@Override
+	public List<BoardDTO> getMyBoard(String id, int page,int quantity) {
+		return boardDAO.getMyBoard(id, page,quantity);
+	}
+
 }

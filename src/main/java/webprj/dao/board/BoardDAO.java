@@ -31,4 +31,12 @@ public interface BoardDAO {
 		
 		//id로 title 구하기
 		String getTitle(int id);
+		
+		
+		//내정보
+		//고객이 쓴 게시글 수
+		int countMyBoard(String id);
+		
+		//고객이 쓴 모든 게시글
+		List<BoardDTO> getMyBoard(String id,int pag,int quantity);
 }

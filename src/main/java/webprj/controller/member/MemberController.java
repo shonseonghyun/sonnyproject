@@ -1,5 +1,7 @@
 package webprj.controller.member;
 
+import java.util.logging.Logger;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import webprj.dto.include.PageDTO;
 import webprj.dto.member.MemberDTO;
+import webprj.service.board.BoardService;
 import webprj.service.member.MemberService;
 
 
@@ -22,12 +26,18 @@ import webprj.service.member.MemberService;
 @Controller
 public class MemberController {
 	
+	
+	
 	@Autowired
 	MemberService memberService;
 	
 	@Autowired
+	BoardService boardService;
+	
+	@Autowired
 	BCryptPasswordEncoder pwdEncoder;
 	
+	static Logger log = Logger.getLogger(MemberController.class.getName());
 	
 	//my페이지 메인화면
 	@RequestMapping(value="",method = RequestMethod.GET)
@@ -39,6 +49,7 @@ public class MemberController {
 		return mav;
 	}
 	
+	//비밀번호 변경
 	@RequestMapping(value="/change",method = RequestMethod.POST)
 	@ResponseBody
 	public boolean changePwOrId(@RequestParam("id") String id,
@@ -52,8 +63,34 @@ public class MemberController {
 		}else{
 			return false;
 		}
-		
 	}
-
+	
+	//my페이지 중 게시판
+	@RequestMapping(value="/board",method = RequestMethod.GET)
+	public ModelAndView boardOfMypage(ModelAndView mav ,
+			HttpServletRequest req,@RequestParam(value="page",defaultValue = "1") int page) {
+		HttpSession session = req.getSession();
+		String id= (String)session.getAttribute("id");
+		
+		int total = boardService.countMyBoard(id);
+		//몇 개씩 보여주고
+		int quantity= 3;
+		// <1 2 3 4 > 같이 그룹
+		int group = 4;
+		PageDTO PageMaker =new PageDTO(total, page, quantity, group);
+		System.out.println(PageMaker);
+		mav.addObject("PageMaker", PageMaker);
+		mav.addObject("boards", boardService.getMyBoard(id,page,quantity));
+		mav.setViewName("project/member/mypage/mypage_board");
+		return mav;
+	}
+	
+	
+	@RequestMapping(value="/board/del",method = RequestMethod.POST)
+	public ResponseEntity<String> boarddel(@RequestParam("board_id") int board_id){
+		boardService.deleteboard(board_id);
+		return new ResponseEntity<String>("board",HttpStatus.OK);
+	}
+	
 	
 }

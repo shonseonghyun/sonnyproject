@@ -51,4 +51,19 @@
 		(select pfnotice.*,row_number() over (order by hit desc) as rank from pfnotice)
 		where rank between 1 and 3
 	</select>
+	
+	<!-- 내정보 게시판 -->
+	<select id="countMyBoard" resultType="int">
+		select count(id)  from pfnotice where writer_id =#{id}
+	</select>
+	
+	<select id="getMyBoard" resultType="webprj.dto.board.BoardDTO">
+		select * from
+		(select ROW_NUMBER() over(order by regdate desc) rank,
+		LAG(ID,1,0) over(order by regdate desc) PREV,
+		LEAD(ID,1,0) over(order by regdate desc) NEXT,
+		pfnotice.* from pfnotice where writer_id=#{id} )
+		where rank between 1+(#{page}-1)*#{quantity} and #{page}*#{quantity}
+	</select>
+	
 </mapper>

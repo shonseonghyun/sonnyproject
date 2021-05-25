@@ -13,7 +13,6 @@
 	<context:component-scan base-package="webprj.controller" />
 	<context:component-scan base-package="webprj.dao" />
 	<context:component-scan base-package="webprj.service" />
-	
 		
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/"></property>
@@ -47,8 +46,6 @@
 	  	<mvc:interceptor>
 	  		<mvc:mapping path="/football/board/write"/>
 	  		<mvc:mapping path="/football/cart"/>
-	  		<mvc:mapping path="/football/find_id"/>
-	  		<mvc:mapping path="/football/find_pw"/>
 	  		<mvc:mapping path="/football/mypage/**"/>
 	  		<mvc:mapping path="/football/board/replywrite"/>
 	  		<bean class="webprj.interceptor.Interceptor" />

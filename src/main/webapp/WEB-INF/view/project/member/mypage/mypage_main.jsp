@@ -11,12 +11,12 @@
 <body>
 	 <header>
 		<%@ include file="../../include/header.jsp" %>
-    </header>
+    </header> 
     <div class="mypage-div">
         <nav class="mypage-nav">
             <ul>
-                <li><a href="mypage">회원정보</a></li>
-                <li><a href="board">게시글 </a></li>
+                <li><a href="/football/mypage">회원정보</a></li>
+                <li><a href="mypage/board">게시글 </a></li>
                 <li><a href="reply">댓글</a></li>
                 <li><a href="product">상품</a></li>
             </ul>
@@ -128,9 +128,10 @@
                         ${member.regdate }
                     </td>
                 </tr>
-               
             </table>
-
+            <div style="margin-top: 10px;">
+            	<button type="button">회원 탈퇴</button>
+            </div>
         </section>
 
         <footer style="clear:both;width: 100%; height: 100px; background-color: brown;">

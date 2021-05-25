@@ -20,26 +20,37 @@
 					return;
 			})
 		}
+
+		$("#LoginBtn").click(function(){
+			location.href="/football/login";
+		})
 	})
 </script>
 </head>
 <body>
-<div class="header-div">
-		<c:if test="${sessionScope.id != null }">
-			<span> <strong>${sessionScope.name } </strong>님 안녕하세요</span>
+	<header class="header-area">
+    	<a href="/football/main"><h1>LOGO DESIGN</h1></a>
+        <c:if test="${sessionScope.id != null }">
+	        <div class="main-div">
+	            <div class="logout-div">
+	                <span>
+	                	<strong>${sessionScope.name } </strong>님
+	                </span>
+	                <button id="LogoutBtn" type="button">로그아웃</button>
+	            </div>
+	            <div class="my-div">
+	                <a href="/football/mypage">내 정보</a>
+	                <a href="/football/cart">장바구니</a>
+	            </div>
+	        </div>
 		</c:if>
-		<ul class="main-ul">
-			<c:if test="${sessionScope.id != null }">
-				<li><a href="/football/main">main</a></li>
-				<li><a href="/football/mypage">mypage</a></li>
-				<li><a href="/football/cart">cart</a></li>
-				<li><span id="LogoutBtn">logout</span></li>
-			</c:if>
-			<c:if test="${sessionScope.id == null }">
-				<li><a href="/football/main">main</a></li>
-				<li><a href="/football/login" >login</a></li>
-			</c:if>
-		</ul>
-	</div>
+		<c:if test="${sessionScope.id == null }">
+			<div class="main-div">
+            	<div class="login-div">
+                	<button id="LoginBtn" type="button">로그인</button>
+            	</div>
+        </div>
+		</c:if>
+    </header>
 </body>
 </html>

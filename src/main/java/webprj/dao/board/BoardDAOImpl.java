@@ -70,5 +70,19 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.selectOne("board.getTitle", id);
 	}
 
+	@Override
+	public int countMyBoard(String id) {
+		return sqlSession.selectOne("board.countMyBoard", id);
+	}
+
+	@Override
+	public List<BoardDTO> getMyBoard(String id, int page,int quantity) {
+		Map<String,Object> map = new HashMap<String, Object>();
+		map.put("id", id);
+		map.put("page", page);
+		map.put("quantity",quantity);
+		return sqlSession.selectList("board.getMyBoard", map);
+	}
+
 
 }
