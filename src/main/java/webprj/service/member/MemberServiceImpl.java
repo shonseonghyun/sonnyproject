@@ -1,9 +1,12 @@
 package webprj.service.member;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import webprj.dao.member.MemberDAO;
+import webprj.dto.goods.GoodsDTO;
 import webprj.dto.member.MemberDTO;
 
 @Service
@@ -45,6 +48,16 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String changePwdWithId(String id) {
 		return memberDAO.changePwdWithId(id);
+	}
+
+	@Override
+	public List<GoodsDTO> getMyGoods(String id, int page, int quantity) {
+		return memberDAO.getMyGoods(id, page, quantity);
+	}
+
+	@Override
+	public int getGoodsCount(String id) {
+		return memberDAO.getGoodsCount(id);
 	}
 
 }

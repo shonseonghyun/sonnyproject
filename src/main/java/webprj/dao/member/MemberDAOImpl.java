@@ -1,12 +1,14 @@
 package webprj.dao.member;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import webprj.dto.goods.GoodsDTO;
 import webprj.dto.member.MemberDTO;
 
 
@@ -57,6 +59,20 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public String changePwdWithId(String id) {
 		return sqlSession.selectOne("member.changePwdWithId", id);
+	}
+
+	@Override
+	public List<GoodsDTO> getMyGoods(String id, int page, int quantity) {
+		Map<String,Object> map = new HashMap<>();
+		map.put("id", id);
+		map.put("page",page);
+		map.put("quantity",quantity);
+		return sqlSession.selectList("member.getMyGoods", map);
+	}
+
+	@Override
+	public int getGoodsCount(String id) {
+		return sqlSession.selectOne("member.getGoodsCount", id);
 	}
 
 }

@@ -11,7 +11,15 @@ public class GoodsDTO {
 	private String gds_descr;
 	private Date regDate;
 	private String picture_url;
+	private int quantity;
 	
+	
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	public int getGds_id() {
 		return gds_id;
 	}
@@ -54,11 +62,11 @@ public class GoodsDTO {
 	public void setPicture_url(String picture_url) {
 		this.picture_url = picture_url;
 	}
+	
 	@Override
 	public String toString() {
 		return "GoodsDTO [gds_id=" + gds_id + ", gds_name=" + gds_name + ", gds_writer_id=" + gds_writer_id
 				+ ", gds_price=" + gds_price + ", gds_descr=" + gds_descr + ", regDate=" + regDate + ", picture_url="
-				+ picture_url + "]";
+				+ picture_url + ", quantity=" + quantity + "]";
 	}
-	
 }

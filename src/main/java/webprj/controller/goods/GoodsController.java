@@ -40,6 +40,7 @@ public class GoodsController {
 			@RequestParam(value="page",defaultValue = "1") int page,
 			ModelAndView mav) {
 		//게시물 총 개수
+		int total = goodsService.getGoodsCount();
 		
 		//몇개씩 보여주고
 		int quantity = 9;
@@ -48,8 +49,7 @@ public class GoodsController {
 		int group = 3;
 		
 		
-		PageDTO PageMaker =new PageDTO(12, page, quantity, group);
-		System.out.println(PageMaker);
+		PageDTO PageMaker =new PageDTO(total, page, quantity, group);
 		mav.addObject("PageMaker", PageMaker);
 		mav.addObject("list", goodsService.getAllList(page,quantity));
 		mav.setViewName("project/goods/gds");

@@ -37,4 +37,12 @@
 	<update id="modifyQty">
 		update cart set amount=#{qty} where cart_id = #{cart_id}
 	</update>
+	
+	<select id="getGoodsCount" resultType="int">
+		select count(*) from goods
+	</select>
+	
+	<delete id="deleteGoods">
+		delete goods where gds_id=#{gds_id}
+	</delete>
 </mapper>

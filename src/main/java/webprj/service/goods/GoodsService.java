@@ -28,4 +28,10 @@ public interface GoodsService {
 
 	//상품 수량 수정
 	void modifyQty(Map<String, Object> map);
+	
+	//goods total 수
+	public int getGoodsCount();
+	
+	//상품 삭제
+	public void deleteGoods(int gds_id);
 }

@@ -57,5 +57,15 @@ public class GoodsDAOImpl implements GoodsDAO {
 		sqlSession.update("goods.modifyQty", map);
 	}
 
+	@Override
+	public int getGoodsCount() {
+		return sqlSession.selectOne("goods.getGoodsCount");
+	}
+
+	@Override
+	public void deleteGoods(int gds_id) {
+		sqlSession.delete("goods.deleteGoods", gds_id);
+	}
+
 
 }

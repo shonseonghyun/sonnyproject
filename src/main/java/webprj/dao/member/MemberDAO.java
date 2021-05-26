@@ -1,5 +1,8 @@
 package webprj.dao.member;
 
+import java.util.List;
+
+import webprj.dto.goods.GoodsDTO;
 import webprj.dto.member.MemberDTO;
 
 public interface MemberDAO {
@@ -26,6 +29,10 @@ public interface MemberDAO {
 	//
 	public String changePwdWithId(String id);
 	
-	//마이피에지 아이디 변경
 	
+	//마이페이지 내가 올린 상품
+	public List<GoodsDTO> getMyGoods(String id, int page, int quantity);
+	
+	//마이페이지 내가 올린 상품 total 수
+	public int getGoodsCount(String id);
 }

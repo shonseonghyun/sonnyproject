@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import webprj.dto.include.PageDTO;
 import webprj.dto.member.MemberDTO;
 import webprj.service.board.BoardService;
+import webprj.service.goods.GoodsService;
 import webprj.service.member.MemberService;
 
 
@@ -33,6 +34,9 @@ public class MemberController {
 	
 	@Autowired
 	BoardService boardService;
+	
+	@Autowired
+	GoodsService goodsService;
 	
 	@Autowired
 	BCryptPasswordEncoder pwdEncoder;
@@ -65,7 +69,7 @@ public class MemberController {
 		}
 	}
 	
-	//my페이지 중 게시판
+									//my페이지 중 게시판
 	@RequestMapping(value="/board",method = RequestMethod.GET)
 	public ModelAndView boardOfMypage(ModelAndView mav ,
 			HttpServletRequest req,@RequestParam(value="page",defaultValue = "1") int page) {
@@ -78,7 +82,6 @@ public class MemberController {
 		// <1 2 3 4 > 같이 그룹
 		int group = 4;
 		PageDTO PageMaker =new PageDTO(total, page, quantity, group);
-		System.out.println(PageMaker);
 		mav.addObject("PageMaker", PageMaker);
 		mav.addObject("boards", boardService.getMyBoard(id,page,quantity));
 		mav.setViewName("project/member/mypage/mypage_board");
@@ -86,11 +89,42 @@ public class MemberController {
 	}
 	
 	
+	//my페이지 중 게시글 삭제
+	//ajax
 	@RequestMapping(value="/board/del",method = RequestMethod.POST)
 	public ResponseEntity<String> boarddel(@RequestParam("board_id") int board_id){
 		boardService.deleteboard(board_id);
 		return new ResponseEntity<String>("board",HttpStatus.OK);
 	}
 	
+	//my페이지 중 상품
+	@RequestMapping(value="/goods",method = RequestMethod.GET)
+	public ModelAndView goodsOfMyPage(ModelAndView mav,
+			HttpServletRequest req,@RequestParam(value="page",defaultValue = "1") int page) {
+		HttpSession session = req.getSession();
+		String id= (String)session.getAttribute("id");
+		
+		int total=memberService.getGoodsCount(id);
+		
+		//몇 개씩 보여주고
+		int quantity= 3;
+		
+		// <1 2 3 4 > 같이 그룹
+		int group = 4;
+		
+		PageDTO PageMaker = new PageDTO(total,page,quantity,group);
+		mav.addObject("goodsList", memberService.getMyGoods(id, page, quantity));
+		mav.addObject("PageMaker", PageMaker);
+		mav.setViewName("project/member/mypage/mypage_goods");
+		return mav;
+	}
+	
+	//my페이지 중 상품 삭제
+	//ajax
+	@RequestMapping(value="/goods/del",method = RequestMethod.POST)
+	public ResponseEntity<String> goodsddel(@RequestParam("gds_id") int gds_id){
+		goodsService.deleteGoods(gds_id);
+		return new ResponseEntity<String>("goods",HttpStatus.OK);
+	}
 	
 }

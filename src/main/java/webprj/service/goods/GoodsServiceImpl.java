@@ -52,4 +52,14 @@ public class GoodsServiceImpl implements GoodsService {
 		goodsDAO.modifyQty(map);
 	}
 
+	@Override
+	public int getGoodsCount() {
+		return goodsDAO.getGoodsCount();
+	}
+
+	@Override
+	public void deleteGoods(int gds_id) {
+		goodsDAO.deleteGoods(gds_id);
+	}
+
 }

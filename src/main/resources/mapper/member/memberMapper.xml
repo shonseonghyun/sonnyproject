@@ -33,5 +33,18 @@
 	<insert id="signup">
 		insert into PFMEMBER(id,name,PWD,email) values(#{id},#{name},#{pwd},#{email})
 	</insert>
-
+	
+	<select id="getMyGoods" resultType="webprj.dto.goods.GoodsDTO" >
+		select * from (
+		select row_number() over (order by gds_id desc) rank, s.* from (
+		select goods.*, NVL(goods_count.quantity,0) AS QUANTITY from goods 
+		left outer join goods_count 
+		on goods.gds_id = goods_count.gds_id
+		where gds_writer_id = #{id}) s
+		) where rank between 1+(#{page}-1)*#{quantity} and #{page}*#{quantity}
+	</select>
+	
+	<select id="getGoodsCount" resultType="int">
+		select count(*) from goods where gds_writer_id=#{id}
+	</select>
 </mapper>
