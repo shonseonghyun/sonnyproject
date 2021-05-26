@@ -6,6 +6,7 @@ $(function(){
 
 	//마우스가 올려져 있을 때 
 	$(".item li").on("mouseover",function(){
+		console.log($(this).children("p").text("!"));
 		$(this).children("p").text("₩"+comma($(this).attr("price")));
 	})
 	

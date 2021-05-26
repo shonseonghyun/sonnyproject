@@ -106,9 +106,10 @@
             </div>
         </section>
     </div>
-    <footer style="clear:both;width: 100%; height: 100px; background-color: brown;">
+    <!-- <footer style="clear:both;width: 100%; height: 100px; background-color: brown;">
            
-    </footer>
+    </footer> -->
+    <%@ include file="../../include/footer.jsp" %>
 </body>
 <script src="/project/js/member/mypage/mypage_main.js"></script>
 <script src="/project/js/member/mypage/mypage_board.js"></script>

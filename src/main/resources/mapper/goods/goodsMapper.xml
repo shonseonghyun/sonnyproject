@@ -8,7 +8,9 @@
 	</insert>
 	
 	<select id="getAlllist" resultType="webprj.dto.goods.GoodsDTO"> 
-		select * from goods order by regdate desc
+		select * from
+		( select ROW_NUMBER() over(order by regdate) rank,g.* from goods g)
+		where rank between 1+(#{page}-1)*#{quantity} and #{page}*#{quantity}
 	</select>
 	
 	<select id="getlist" resultType="webprj.dto.goods.GoodsDTO">

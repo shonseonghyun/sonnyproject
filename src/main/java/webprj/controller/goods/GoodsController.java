@@ -2,6 +2,7 @@ package webprj.controller.goods;
 
 import java.io.File;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,19 +21,37 @@ import org.springframework.web.servlet.ModelAndView;
 
 import webprj.dto.cart.CartDTO;
 import webprj.dto.goods.GoodsDTO;
+import webprj.dto.include.PageDTO;
 import webprj.service.goods.GoodsService;
 
 @Controller
 @RequestMapping("football/goods")
 public class GoodsController {
+	
+	static Logger log = Logger.getLogger(GoodsController.class.getName());
 
+	
 	@Autowired
 	GoodsService goodsService;
 	
 	//상품페이지
 	@RequestMapping(value= "", method = RequestMethod.GET)
-	public ModelAndView getgds(ModelAndView mav) {
-		mav.addObject("list", goodsService.getAllList());
+	public ModelAndView getgds(
+			@RequestParam(value="page",defaultValue = "1") int page,
+			ModelAndView mav) {
+		//게시물 총 개수
+		
+		//몇개씩 보여주고
+		int quantity = 9;
+		
+		//몇개 페이지수
+		int group = 3;
+		
+		
+		PageDTO PageMaker =new PageDTO(12, page, quantity, group);
+		System.out.println(PageMaker);
+		mav.addObject("PageMaker", PageMaker);
+		mav.addObject("list", goodsService.getAllList(page,quantity));
 		mav.setViewName("project/goods/gds");
 		return mav;
 	}

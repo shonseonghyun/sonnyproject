@@ -11,7 +11,7 @@ public interface GoodsDAO {
 	void registerGoods(GoodsDTO dto);
 	
 	//상품 목록
-	List<GoodsDTO> getAllList();
+	List<GoodsDTO> getAllList(int page, int quantity);
 	//특정 상품
 	GoodsDTO getList(int id);
 	

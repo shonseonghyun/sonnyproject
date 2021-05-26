@@ -48,6 +48,7 @@
 	  		<mvc:mapping path="/football/cart"/>
 	  		<mvc:mapping path="/football/mypage/**"/>
 	  		<mvc:mapping path="/football/board/replywrite"/>
+	  		<mvc:mapping path="/football/goods/register"/>
 	  		<bean class="webprj.interceptor.Interceptor" />
 	  	</mvc:interceptor>
 	  	<mvc:interceptor>

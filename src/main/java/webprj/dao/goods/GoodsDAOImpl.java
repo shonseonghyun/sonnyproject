@@ -23,8 +23,11 @@ public class GoodsDAOImpl implements GoodsDAO {
 	}
 
 	@Override
-	public List<GoodsDTO> getAllList() {
-		return sqlSession.selectList("goods.getAlllist");
+	public List<GoodsDTO> getAllList(int page,int quantity) {
+		Map<String,Integer> map = new HashMap<>();
+		map.put("page", page);
+		map.put("quantity", quantity);
+		return sqlSession.selectList("goods.getAlllist",map);
 	}
 
 	@Override

@@ -22,8 +22,8 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	@Override
-	public List<GoodsDTO> getAllList() {
-		return goodsDAO.getAllList();
+	public 	List<GoodsDTO> getAllList(int page, int quantity){
+		return goodsDAO.getAllList(page,quantity);
 	}
 
 	@Override
