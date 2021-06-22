@@ -81,18 +81,34 @@
 					<td class="sub-td">subject</td>
 					<td class="writer-td">Writer</td>
 					<td class="date-td">Date</td>
+					<td class="del-td"></td>
+					
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-				</tr>
+				<c:forEach var="reviews" items="${reviews }">
+					<tr>
+						<td>${reviews.id }</td>
+						<td>${reviews.content }</td>
+						<td>${reviews.writer_id }</td>
+						<td>${reviews.regdate }</td>
+						<c:if test="${reviews.writer_id eq sessionScope.id }">
+							<td> <button id=${reviews.id }>x</button> </td>
+						
+						</c:if>
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 		<div class="review-btn-div">
-			<button type="button">작성</button>
+			<button id="review-btn" type="button">리뷰 작성 열기</button>
 		</div>
+		<div id="reviewRegister-div" style="display: none;">
+	        <form action="reviewwrite" method="post">
+	        	<input type="hidden" name="gds_id" value="${param.id}">
+	        	<input type="text" name="content">
+	        	<input type="hidden" name="writer_id" value="${sessionScope.id}">
+	        	<input type="submit" value="리뷰 작성">
+	        </form>
+        </div>
 	</div>
 
 	<footer>

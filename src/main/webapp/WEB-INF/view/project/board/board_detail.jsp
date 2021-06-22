@@ -124,7 +124,7 @@
 		</div>
 		
 		<div class="reply-btn-div">
-			<button id="replyBtn" type="button">작성</button>
+			<button id="replyBtn" type="button">댓글 작성 열기</button>
 		</div>
 		<div id="replyRegister-div" style="display: none;">
 	        <form action="replywrite" method="post">

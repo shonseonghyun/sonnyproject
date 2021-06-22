@@ -21,8 +21,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import webprj.dto.cart.CartDTO;
 import webprj.dto.goods.GoodsDTO;
+import webprj.dto.goods.GoodsReviewDTO;
 import webprj.dto.include.PageDTO;
 import webprj.service.goods.GoodsService;
+import webprj.service.goods.review.GoodsReviewService;
 
 @Controller
 @RequestMapping("football/goods")
@@ -33,6 +35,10 @@ public class GoodsController {
 	
 	@Autowired
 	GoodsService goodsService;
+	
+	//review관련 service
+	@Autowired
+	GoodsReviewService goodsReviewService;
 	
 	//상품페이지
 	@RequestMapping(value= "", method = RequestMethod.GET)
@@ -56,13 +62,16 @@ public class GoodsController {
 		return mav;
 	}
 	
-	//특정 상품 페이지
+	
+	//특정 상품 페이지 ( review 관련 매핑)
 	@RequestMapping(value="/detail",method = RequestMethod.GET)
 	public ModelAndView getgd(@RequestParam int id, ModelAndView mav) {
 		mav.addObject("item", goodsService.getList(id));
 		mav.setViewName("project/goods/gds-detail");
+		mav.addObject("reviews", goodsReviewService.readReview(id));
 		return mav;
 	}
+	
 	
 	//상품 등록 페이지
 	@RequestMapping(value= "/register", method = RequestMethod.GET)
@@ -115,5 +124,12 @@ public class GoodsController {
 			res=new ResponseEntity<String>("다시 시도해 주세요",HttpStatus.BAD_REQUEST);
 		}
 		return res;
+	}
+	
+						//리뷰 관련 시작//
+	@RequestMapping(value="/reviewwrite",method = RequestMethod.POST)
+	public String reviewWrietMethod(@ModelAttribute GoodsReviewDTO dto) {
+		goodsReviewService.writeReview(dto);
+		return "redirect:detail/?id="+dto.getGds_id();
 	}
 }

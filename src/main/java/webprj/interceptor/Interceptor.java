@@ -35,5 +35,4 @@ public class Interceptor extends HandlerInterceptorAdapter{
 			request.getSession().setAttribute("uri", uri+query);
 		}
 	}
-	
 }

@@ -17,9 +17,9 @@
         <nav class="mypage-nav">
             <ul>
                 <li><a href="/football/mypage">회원정보</a></li>
-                <li><a href="board">게시글 </a></li>
-                <li><a href="reply">댓글</a></li>
-                <li><a href="goods">상품</a></li>
+                <li><a href="mypage/board">게시글 </a></li>
+                <li><a href="mypage/reply">댓글</a></li>
+                <li><a href="mypage/goods">상품</a></li>
             </ul>
         </nav>
 

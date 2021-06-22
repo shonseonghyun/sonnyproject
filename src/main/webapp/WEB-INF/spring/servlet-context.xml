@@ -51,10 +51,6 @@
 	  		<mvc:mapping path="/football/goods/register"/>
 	  		<bean class="webprj.interceptor.Interceptor" />
 	  	</mvc:interceptor>
-	  	<mvc:interceptor>
-	  		<mvc:mapping path="/football/login"/>
-	  		<bean class="webprj.interceptor.MoveBeforeUriInterceptor"></bean>
-	  	</mvc:interceptor>
   	</mvc:interceptors> 
 	
 	

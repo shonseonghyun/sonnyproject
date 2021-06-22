@@ -17,4 +17,21 @@ $(function(){
 		location.href="/football/goods";
 	})
 	
+	
+	//리뷰 작성 열기 버튼
+	$("#review-btn").on("click",function(){
+		if($("#reviewRegister-div").is(':visible')){
+			$("#reviewRegister-div").css("display","none");
+			$(this).text("리뷰 작성 열기");
+		}
+		else{
+			$("#reviewRegister-div").css("display","block");
+			$(this).text("리뷰 작성 닫기");
+		}
+	})
+	
+	$(".review-btn").on("click",function(){
+	
+	})
+	
 })

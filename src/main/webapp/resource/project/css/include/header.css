@@ -9,10 +9,14 @@ a{
     text-align: center;
 }
 
-.header-area h1{
+.header-area div:first-child{
     padding-top:55px;
-    cursor: pointer;
     color: black;
+}
+
+.gotoMain{
+	font-size: 40px;
+	cursor: pointer;
 }
 
 .main-div{

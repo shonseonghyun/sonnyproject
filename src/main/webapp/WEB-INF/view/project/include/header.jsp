@@ -24,12 +24,18 @@
 		$("#LoginBtn").click(function(){
 			location.href="/football/login";
 		})
+
+		$(".gotoMain").click(function(){
+			location.href="/football/main";
+		})
 	})
 </script>
 </head>
 <body>
 	<header class="header-area">
-    	<a href="/football/main"><h1>LOGO DESIGN</h1></a>
+    	<div>
+	    	<span class="gotoMain">LOGO DESIGN</span>
+    	</div>
         <c:if test="${sessionScope.id != null }">
 	        <div class="main-div">
 	            <div class="logout-div">
